@@ -15,21 +15,22 @@ public class Product {
 	private Integer id;	// 번호 
 	
 	@ManyToOne
-	@JoinColumn()
+	@JoinColumn(name = "seller_id")
 	private Seller seller;	// 판매자 번호
 	
 	@ManyToOne
+	@JoinColumn(name = "category_id")
 	private Category category;	// 카테고리 번호
 	
-	@Column()
-	private Integer price;		// 가격
+	@Column(name = "price")
+	private Integer price = 0;		// 가격
 	
-	@Column()
-	private String description;	// 설명 
+	@Column(name = "description")
+	private String description;	// 상품 설명 
 	
-	@Column()
+	@Column(name = "stock")
 	private Integer stock; // 재고
 	
-	@Column()
-	private String name; // 이름
+	@Column(name = "name", length = 50, nullable = false)
+	private String name; // 상품 이름
 }

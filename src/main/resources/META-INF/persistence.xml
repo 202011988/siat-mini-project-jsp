@@ -6,13 +6,13 @@
                 https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
 
-    <persistence-unit name="jpa_mapping">
+    <persistence-unit name="shopping_project">
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost/madangdb?characterEncoding=utf8"/>
-            <property name="jakarta.persistence.jdbc.user" value="madang"/>
-            <property name="jakarta.persistence.jdbc.password" value="madang"/>
+                      value="jdbc:mysql://localhost/shopping?characterEncoding=utf8"/>
+            <property name="jakarta.persistence.jdbc.user" value="shopping"/>
+            <property name="jakarta.persistence.jdbc.password" value="shopping"/>
 
             <property name="hibernate.hikari.poolName" value="pool"/>
             <property name="hibernate.hikari.maximumPoolSize" value="10"/>

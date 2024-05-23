@@ -9,6 +9,7 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <hiberate.version>6.5.0.Final</hiberate.version>
+    <querydsl.version>5.0.0</querydsl.version>
   </properties>  
 
   <dependencies>
@@ -37,6 +38,21 @@
 	    <artifactId>hibernate-hikaricp</artifactId>
 	    <version>${hiberate.version}</version>
 	</dependency>
+	<!-- https://mvnrepository.com/artifact/com.querydsl/querydsl-apt -->
+   <dependency>
+       <groupId>com.querydsl</groupId>
+       <artifactId>querydsl-apt</artifactId>
+       <version>${querydsl.version}</version>
+       <classifier>jakarta</classifier>
+       <scope>provided</scope>
+   </dependency>
+   <dependency>
+	<!-- https://mvnrepository.com/artifact/com.querydsl/querydsl-jpa -->
+       <groupId>com.querydsl</groupId>
+       <artifactId>querydsl-jpa</artifactId>
+       <classifier>jakarta</classifier>
+       <version>${querydsl.version}</version>
+   </dependency>
   </dependencies>
   <build>
     <plugins>
