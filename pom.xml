@@ -13,14 +13,20 @@
   </properties>  
 
   <dependencies>
-		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+	<!-- https://mvnrepository.com/artifact/jstl/jstl -->
 	<dependency>
 		<groupId>jstl</groupId>
 		<artifactId>jstl</artifactId>
 		<version>1.2</version>
 	</dependency>
-
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
+    </dependency>
+	<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 	<dependency>
 	    <groupId>org.projectlombok</groupId>
 	    <artifactId>lombok</artifactId>
@@ -60,6 +66,12 @@
        <classifier>jakarta</classifier>
        <version>${querydsl.version}</version>
    </dependency>
+   <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
   </dependencies>
   <build>
     <plugins>
