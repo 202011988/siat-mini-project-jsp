@@ -8,7 +8,7 @@ import jakarta.persistence.Persistence;
 public class InheritanceMappingTest {
 
 	public static void main(String[] args) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_mapping");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("shopping_project");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		
