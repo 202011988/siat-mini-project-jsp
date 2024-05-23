@@ -30,6 +30,14 @@ public class UserService {
         return em.createNativeQuery(sql).getResultList();
     }
 
+    public User findUserById(int userId) {
+        User user = null;
+        user = em.find(User.class, userId);
+
+        return user;
+    }
+
+
     public void off() {
         em.close();
     }
