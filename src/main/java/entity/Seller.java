@@ -5,21 +5,27 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "sellers")
 public class Seller {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;	// 번호 
+	private Integer id;			// 번호
 	
-	@Column(length = 50, nullable = false)
+	@Column(name = "seller_name", length = 50)
 	private String sellerName;	// 사업자 이름
-	@Column(length = 50, nullable = false)
+
+	@Column(name = "store_name", length = 50, nullable = false)
 	private String storeName;	// 상호명
+
 	@Column(length = 50, nullable = false)
 	private String password;	// 비밀번호
-	@Column()
+
+	@Column(name = "registration_number", nullable = false)
 	private Integer registrationNumber;	// 사업자 등록번호
-	@Column()
-	private Integer total; // 매출액
+
+	@Column
+	private Integer total; 		// 매출액
 }

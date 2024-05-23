@@ -10,7 +10,7 @@
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost/shopping?characterEncoding=utf8"/>
+                      value="jdbc:mysql://localhost:3307/shopping?characterEncoding=utf8"/>
             <property name="jakarta.persistence.jdbc.user" value="shopping"/>
             <property name="jakarta.persistence.jdbc.password" value="shopping"/>
 
