@@ -21,7 +21,7 @@
                 <td width="1220" height="20" colspan="2" bgcolor="#336699">
                     <p align="center">
                         <font color="white" size="3">
-                            <b>로그ㅇㄹㄴㅁㄴㅇㅁ</b>
+                            <b>로그인</b>
                         </font>
                     </p>
                 </td>
