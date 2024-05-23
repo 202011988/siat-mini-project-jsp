@@ -27,7 +27,7 @@ public class Product {
 	@Column(name = "price")
 	private Integer price = 0;		// 가격
 	
-	@Column(name = "description")
+	@Column(name = "description", columnDefinition = "TEXT")
 	private String description;	// 상품 설명 
 	
 	@Column(name = "stock")
