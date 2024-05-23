@@ -10,7 +10,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @DiscriminatorValue(value = "film")
-public class Film extends Product {
+public class Film extends Product1 {
 	private String director;
 	private String actor;
 	

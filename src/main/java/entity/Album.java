@@ -10,7 +10,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @DiscriminatorValue(value = "album")
-public class Album extends Product {
+public class Album extends Product1 {
 	private String artist;
 
 }
