@@ -21,7 +21,7 @@
                 <td width="1220" height="20" colspan="2" bgcolor="#336699">
                     <p align="center">
                         <font color="white" size="3">
-                            <b>로그인</b>
+                            <b>로그ㅇㄹㄴㅁㄴㅇㅁ</b>
                         </font>
                     </p>
                 </td>
@@ -40,7 +40,7 @@
             </tr>
             <tr>
                 <td width="150" height="20">
-                    <p align="center"><b><span style="font-size:12pt;">사  원  명</span></b></p>
+                    <p align="center"><b><span style="font-size:12pt;">사원명</span></b></p>
                 </td>
                 <td width="450" height="20" align="center">
                     <b>
