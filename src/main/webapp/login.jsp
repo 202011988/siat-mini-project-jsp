@@ -28,7 +28,7 @@
             </tr>
             <tr>
                 <td width="150" height="20">
-                    <p align="center"><b><span style="font-size:12pt;">사원번호</span></b></p>
+                    <p align="center"><b><span style="font-size:12pt;">ID</span></b></p>
                 </td>
                 <td width="450" height="20" align="center">
                     <b>
@@ -40,7 +40,7 @@
             </tr>
             <tr>
                 <td width="150" height="20">
-                    <p align="center"><b><span style="font-size:12pt;">사  원  명</span></b></p>
+                    <p align="center"><b><span style="font-size:12pt;">PW</span></b></p>
                 </td>
                 <td width="450" height="20" align="center">
                     <b>
@@ -58,6 +58,7 @@
                 <td width="450" height="20" align="center">
                     <b>
 		        		<span style="font-size:12pt;">
+		        			<input type="checkbox" >
 							<input type="submit" value="로그인">
 							&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="reset" value="다시작성">
