@@ -10,6 +10,7 @@ public class JPAUtil {
         try {
             factory = Persistence.createEntityManagerFactory("shopping_project");
         } catch (Exception e) {
+        	System.out.println(e);
             System.out.println("ERROR! EntityManagerFactory 연결 실패");
         }
     }

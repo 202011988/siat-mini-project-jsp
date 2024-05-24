@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import entity.Seller;
 import entity.User;
-import service.CartService;
 import service.SellerService;
 import service.UserService;
 
@@ -35,7 +34,7 @@ public class LoginController extends HttpServlet {
         if (isSeller) {
 
             SellerService sellerService = new SellerService();
-
+            System.out.println("판매자");
             Seller seller = null;
             seller = sellerService.findSellerByRegistrationNumberAndPassword(id, pw);
 
@@ -52,7 +51,7 @@ public class LoginController extends HttpServlet {
         } else {
 
             UserService userService = new UserService();
-
+            System.out.println("user");
             User user = null;
             user = userService.findUserByUsernameAndPassword(id, pw);
 

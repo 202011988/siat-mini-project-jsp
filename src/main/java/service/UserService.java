@@ -18,6 +18,8 @@ public class UserService {
         em = JPAUtil.getEntityManagerFactory().createEntityManager();
         tx = em.getTransaction();
         tx.begin();
+        
+        
     }
 
     @Transient
@@ -36,6 +38,7 @@ public class UserService {
         String sql = "SELECT u FROM User u WHERE u.username = :id AND u.password = :pw";
         User user = null;
         try {
+        	
             user =  em.createQuery(sql, User.class)
                     .setParameter("id", username)
                     .setParameter("pw", password)
