@@ -29,12 +29,12 @@ public class CartService {
         cartRepository.saveAll(carts);
     }
 
-    public void remove(int cardId) {
-        cartRepository.remove(cardId);
+    public Integer remove(Integer cartId) {
+        return cartRepository.remove(cartId);
     }
 
-    public void updateQuantity(int cardId, int quantity) {
-        cartRepository.updateQuantity(cardId, quantity);
+    public Integer updateQuantity(int cardId, int quantity) {
+        return cartRepository.updateQuantity(cardId, quantity);
     }
 }
 

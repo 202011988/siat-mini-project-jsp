@@ -3,6 +3,7 @@ package repository;
 import entity.Cart;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Query;
 import jakarta.persistence.Transient;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
@@ -40,7 +41,6 @@ public class CartRepository {
         em.close();
     }
 
-    @Transactional
     public void saveAll(List<Cart> carts) {
         for (Cart cart : carts) {
             em.persist(cart);
@@ -48,14 +48,25 @@ public class CartRepository {
         tx.commit();
     }
 
-    public void remove(Integer cartId) {
-        em.remove(cartId);
+    public Integer remove(Integer cartId) {
+        String sql = "DELETE FROM Cart c WHERE c.id = :id";
+        Integer result = em.createQuery(sql).setParameter("id", cartId).executeUpdate();
+
+        tx.commit();
+        return result;
     }
 
-    public boolean updateQuantity(int cartId, int quantity) {
-        String sql = "UPDATE Cart set quantity = :q where Cart.id = :id";
-        TypedQuery<Cart> query = em.createQuery(sql, Cart.class).setParameter("q", quantity).setParameter("id", cartId);
+    public Integer updateQuantity(int cartId, int quantity) {
+        String sql = "UPDATE Cart c set c.quantity = :q where c.id = :id";
+        Integer result = em.createQuery(sql).setParameter("q", quantity)
+                .setParameter("id", cartId).executeUpdate();
 
-        return true;
+        tx.commit();
+        return result;
+    }
+
+    public Cart findById(Integer cartId) {
+        String sql = "SELECT c FROM Cart c WHERE c.id = :id";
+        return em.createQuery(sql, Cart.class).getSingleResult();
     }
 }
