@@ -18,12 +18,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;			// 번호
-	
-	@Column(length = 50, nullable = false)
-	private String username;	// 유저 아이디
+	@Column(name = "user_id", length = 50)
+	private String user_id;	// 유저 아이디
 
 	@Column(length = 50, nullable = false)
 	private String password;	// 유저 비밀번호
@@ -32,5 +30,5 @@ public class User {
 	private String address;		// 유저 주소
 
 	@Column(length = 50, nullable = false)
-	private String nickname;	// 유저 닉네임
+	private String username;	// 유저 이름
 }

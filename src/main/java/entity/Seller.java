@@ -6,14 +6,21 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.*;
 
 @Entity
 @Table(name = "sellers")
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Seller {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;			// 번호
-	
+	@Column(name = "registration_number")
+	private Integer registrationNumber;	// 사업자 등록번호
+
 	@Column(name = "seller_name", length = 50)
 	private String sellerName;	// 사업자 이름
 
@@ -22,9 +29,6 @@ public class Seller {
 
 	@Column(length = 50, nullable = false)
 	private String password;	// 비밀번호
-
-	@Column(name = "registration_number", nullable = false)
-	private Integer registrationNumber;	// 사업자 등록번호
 
 	@Column
 	private Integer total; 		// 매출액

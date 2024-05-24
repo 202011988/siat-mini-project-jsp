@@ -25,7 +25,7 @@ public classgit CartController extends HttpServlet {
         List<Cart> cartList = cartService.getCartList();
 
         for (Cart cart : cartList) {
-            out.println(cart.getUser().getNickname() + " : " + cart.getPrice());
+            out.println(cart.getUser().getUsername() + " : " + cart.getPrice());
         }
 
         cartService.off();
