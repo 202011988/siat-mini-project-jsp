@@ -62,6 +62,7 @@
 							&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="reset" value="다시작성">
                             &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="button" value="회원가입" onclick="location.href='/views/register/select.jsp'">
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="checkbox" id="seller", name="seller">
                             <label for="seller">관리자로 로그인</label>

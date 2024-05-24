@@ -56,6 +56,8 @@ public class LoginController extends HttpServlet {
             user = userService.findUserByUsernameAndPassword(id, pw);
 
             if (user != null) {
+                HttpSession session = req.getSession();
+                session.setAttribute("user", user.getUsername());
                 resp.sendRedirect("/views/virtualestimate.jsp");
             } else {
                 req.setAttribute("error", "해당하는 계정을 찾을 수 없음");
