@@ -35,4 +35,8 @@ public class ProductService {
     public void off() {
         em.close();
     }
+
+    public Product find(int productId) {
+        return em.find(Product.class, productId);
+    }
 }

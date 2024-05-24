@@ -1,8 +1,10 @@
 package controller;
 
+import entity.Cart;
 import entity.Category;
 import entity.Product;
 import entity.Seller;
+import entity.User;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -13,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import service.CategoryService;
 import service.ProductService;
 import service.SellerService;
-import service.UserService;
 
 @WebServlet(value = "/productTest")
 public class ProductControllerTest extends HttpServlet {
@@ -23,7 +24,6 @@ public class ProductControllerTest extends HttpServlet {
             throws ServletException, IOException {
         // 테스트하기 위해 상품을 미리 등록한다.
 
-        UserService userService = new UserService();
         ProductService productService = new ProductService();
         CategoryService categoryService = new CategoryService();
         SellerService sellerService = new SellerService();
@@ -95,6 +95,18 @@ public class ProductControllerTest extends HttpServlet {
         productService.saveAll(
                 List.of(product1, product2, product3, product4, product5, product6, product99));
 
+        // 사용자가 해당 상품을 "담기" 했을 경우
+        // 1
+        req.getSession().setAttribute("productId", product6.getId());
+        // 2 cart service 바로 등록
+//        User user = new User(null, "user1", "password", "seoul", "nickname");
+//        userService.save(user);
 
+//        Cart cart = Cart.builder()
+//                .user(user)
+//                .product(product6)
+//                .quantity(1)
+//                .build();
+//        cartService.save(cart);
     }
 }
