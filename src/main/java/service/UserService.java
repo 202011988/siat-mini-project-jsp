@@ -19,7 +19,6 @@ public class UserService {
         tx.begin();
     }
 
-    @Transactional
     public void save(User user) {
         em.persist(user);
         tx.commit();

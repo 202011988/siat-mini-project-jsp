@@ -19,12 +19,10 @@ public class CartService {
         return list;
     }
 
-    @Transactional
     public void save(Cart cart) {
         cartRepository.save(cart);
     }
 
-    @Transactional
     public void saveAll(List<Cart> carts) {
         cartRepository.saveAll(carts);
     }
