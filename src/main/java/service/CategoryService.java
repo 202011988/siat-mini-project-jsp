@@ -1,5 +1,6 @@
 package service;
 
+import jakarta.transaction.Transactional;
 import java.util.List;
 
 import entity.Category;
@@ -21,7 +22,7 @@ public class CategoryService {
         tx.begin();
     }
 
-    @Transient
+    @Transactional
     public void save(Category category) {
         em.persist(category);
 
@@ -46,7 +47,13 @@ public class CategoryService {
         return category;
     }
 
-
+    @Transactional
+    public void saveAll(List<Category> categories) {
+        for (Category category : categories) {
+            em.persist(category);
+        }
+        tx.commit();
+    }
 
     public void off() {
         em.close();

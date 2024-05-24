@@ -1,13 +1,10 @@
 package service;
 
-import entity.Seller;
 import entity.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
-import jakarta.persistence.Transient;
 import jakarta.transaction.Transactional;
-import java.util.List;
 
 import util.JPAUtil;
 
@@ -20,8 +17,6 @@ public class UserService {
         em = JPAUtil.getEntityManagerFactory().createEntityManager();
         tx = em.getTransaction();
         tx.begin();
-        
-        
     }
 
     @Transactional

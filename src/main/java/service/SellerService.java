@@ -7,6 +7,7 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.Transient;
 
+import jakarta.transaction.Transactional;
 import java.util.List;
 import util.JPAUtil;
 
@@ -21,10 +22,18 @@ public class SellerService {
         tx.begin();
     }
 
-    @Transient
+    @Transactional
     public void save(Seller seller) {
         em.persist(seller);
 
+        tx.commit();
+    }
+
+    @Transactional
+    public void saveAll(List<Seller> sellers) {
+        for (Seller seller : sellers) {
+            em.persist(seller);
+        }
         tx.commit();
     }
 
