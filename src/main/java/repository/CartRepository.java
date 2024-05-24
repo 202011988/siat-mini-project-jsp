@@ -47,4 +47,15 @@ public class CartRepository {
         }
         tx.commit();
     }
+
+    public void remove(Integer cartId) {
+        em.remove(cartId);
+    }
+
+    public boolean updateQuantity(int cartId, int quantity) {
+        String sql = "UPDATE Cart set quantity = :q where Cart.id = :id";
+        TypedQuery<Cart> query = em.createQuery(sql, Cart.class).setParameter("q", quantity).setParameter("id", cartId);
+
+        return true;
+    }
 }

@@ -28,4 +28,13 @@ public class CartService {
     public void saveAll(List<Cart> carts) {
         cartRepository.saveAll(carts);
     }
+
+    public void remove(int cardId) {
+        cartRepository.remove(cardId);
+    }
+
+    public void updateQuantity(int cardId, int quantity) {
+        cartRepository.updateQuantity(cardId, quantity);
+    }
 }
+

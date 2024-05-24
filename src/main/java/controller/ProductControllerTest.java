@@ -97,8 +97,11 @@ public class ProductControllerTest extends HttpServlet {
 
         // 사용자가 해당 상품을 "담기" 했을 경우
         // 1
+//        req.setAttribute(); // 애트리뷰트 등록한 후
+//        req.getRequestDispatcher() // 으로 등록할 수 있어요.
+        // 2 세션 이거는 이용 할 리 없고
         req.getSession().setAttribute("productId", product6.getId());
-        // 2 cart service 바로 등록
+        // 3 cart service 바로 등록
 //        User user = new User(null, "user1", "password", "seoul", "nickname");
 //        userService.save(user);
 
