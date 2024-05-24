@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.CartService;
 
-@WebServlet(value = "/updateCartWithQuantity")
+@WebServlet(value = "/updateCartWithQuantity.do")
 public class CartUpdateQuantityController extends HttpServlet {
 
     @Override
