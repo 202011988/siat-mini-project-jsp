@@ -6,7 +6,9 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.Transient;
+import jakarta.transaction.Transactional;
 import java.util.List;
+
 import util.JPAUtil;
 
 public class UserService {
@@ -22,17 +24,12 @@ public class UserService {
         
     }
 
-    @Transient
+    @Transactional
     public void save(User user) {
         em.persist(user);
-
         tx.commit();
     }
 
-    public List<Integer> getUserList() {
-        String sql = "SELECT id FROM users";
-        return em.createNativeQuery(sql).getResultList();
-    }
 
     public User findUserByUsernameAndPassword(String username, String password) {
         String sql = "SELECT u FROM User u WHERE u.username = :id AND u.password = :pw";

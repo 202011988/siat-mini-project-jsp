@@ -24,10 +24,10 @@ public class UserController extends HttpServlet {
                 User.builder().user_id("user_id").password("password").address("seoul")
                         .username("user1").build());
 
-        PrintWriter out = resp.getWriter();
-        for (int id : userService.getUserList()) {
-            out.println(id);
-        }
+//        PrintWriter out = resp.getWriter();
+//        for (int id : userService.getUserList()) {
+//            out.println(id);
+//        }
 
         userService.off();
     }

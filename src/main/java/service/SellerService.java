@@ -6,6 +6,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.Transient;
+
 import java.util.List;
 import util.JPAUtil;
 
@@ -27,8 +28,6 @@ public class SellerService {
         tx.commit();
     }
 
-
-
     public Seller findSellerById(int sellerId) {
         Seller seller= null;
         try {
@@ -44,7 +43,7 @@ public class SellerService {
         String sql = "SELECT s FROM Seller s WHERE s.registrationNumber = :id AND s.password = :pw";
         Seller seller = null;
         try {
-            seller =  em.createQuery(sql, Seller.class)
+            seller = em.createQuery(sql, Seller.class)
                     .setParameter("id", registrationNumber)
                     .setParameter("pw", password)
                     .getSingleResult();

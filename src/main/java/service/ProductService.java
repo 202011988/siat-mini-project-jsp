@@ -1,7 +1,6 @@
 package service;
 
 import java.util.List;
-
 import entity.Product;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -11,11 +10,13 @@ import util.JPAUtil;
 public class ProductService {
     EntityManager em;
     EntityTransaction tx;
+
     public ProductService() {
         em = JPAUtil.getEntityManagerFactory().createEntityManager();
         tx = em.getTransaction();
         tx.begin();
     }
+
     @Transactional
     public void save(Product product) {
         em.persist(product);
@@ -29,6 +30,7 @@ public class ProductService {
         }
         tx.commit();
     }
+
     public void off() {
         em.close();
     }

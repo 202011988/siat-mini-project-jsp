@@ -51,7 +51,4 @@ public class CategoryService {
     public void off() {
         em.close();
     }
-
-
-
 }

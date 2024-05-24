@@ -1,35 +1,40 @@
 package service;
 
 import entity.Cart;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
+import jakarta.transaction.Transactional;
 import java.util.List;
-import util.JPAUtil;
+import repository.CartRepository;
 
 public class CartService {
 
-    EntityManager em;
-    EntityTransaction tx;
+    private final CartRepository cartRepository;
 
     public CartService() {
-        em = JPAUtil.getEntityManagerFactory().createEntityManager();
-        tx = em.getTransaction();
-        tx.begin();
+        cartRepository = new CartRepository();
     }
 
-    public boolean save(Cart cart) {
-         em.persist(cart);
-
-        tx.commit();
-        return true;
+    public List<Cart> getCartListByUserId(int userId) {
+        List<Cart> list = cartRepository.findCartListByUserId(userId);
+        System.out.println(list);
+        return list;
     }
 
-    public List<Cart> getCartList() {
-        String sql = "SELECT id FROM carts";
-        return em.createNativeQuery(sql).getResultList();
+    @Transactional
+    public void save(Cart cart) {
+        cartRepository.save(cart);
     }
 
-    public void off() {
-        em.close();
+    @Transactional
+    public void saveAll(List<Cart> carts) {
+        cartRepository.saveAll(carts);
+    }
+
+    public void remove(int cardId) {
+        cartRepository.remove(cardId);
+    }
+
+    public void updateQuantity(int cardId, int quantity) {
+        cartRepository.updateQuantity(cardId, quantity);
     }
 }
+
