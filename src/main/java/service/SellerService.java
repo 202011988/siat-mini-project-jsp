@@ -9,55 +9,52 @@ import jakarta.persistence.Transient;
 import java.util.List;
 import util.JPAUtil;
 
-public class UserService {
+public class SellerService {
 
     EntityManager em;
     EntityTransaction tx;
 
-    public UserService() {
+    public SellerService() {
         em = JPAUtil.getEntityManagerFactory().createEntityManager();
         tx = em.getTransaction();
         tx.begin();
     }
 
     @Transient
-    public void save(User user) {
-        em.persist(user);
+    public void save(Seller seller) {
+        em.persist(seller);
 
         tx.commit();
     }
 
-    public List<Integer> getUserList() {
-        String sql = "SELECT id FROM users";
-        return em.createNativeQuery(sql).getResultList();
+
+
+    public Seller findSellerById(int sellerId) {
+        Seller seller= null;
+        try {
+            seller = em.find(Seller.class, sellerId);
+        } catch (Exception e) {
+
+        }
+
+        return seller;
     }
 
-    public User findUserByUsernameAndPassword(String username, String password) {
-        String sql = "SELECT u FROM User u WHERE u.username = :id AND u.password = :pw";
-        User user = null;
+    public Seller findSellerByRegistrationNumberAndPassword(String registrationNumber, String password) {
+        String sql = "SELECT s FROM Seller s WHERE s.registrationNumber = :id AND s.password = :pw";
+        Seller seller = null;
         try {
-            user =  em.createQuery(sql, User.class)
-                    .setParameter("id", username)
+            seller =  em.createQuery(sql, Seller.class)
+                    .setParameter("id", registrationNumber)
                     .setParameter("pw", password)
                     .getSingleResult();
         } catch (NoResultException e) {
             return null;
         }
-        return user;
+        return seller;
     }
-
-
-    public User findUserById(int userId) {
-        User user = null;
-        user = em.find(User.class, userId);
-
-        return user;
-    }
-
 
     public void off() {
         em.close();
     }
-
-
 }
