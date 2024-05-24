@@ -2,13 +2,13 @@ package controller;
 
 import entity.Cart;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import entity.Seller;
 import entity.User;
@@ -40,6 +40,9 @@ public class LoginController extends HttpServlet {
             seller = sellerService.findSellerByRegistrationNumberAndPassword(id, pw);
 
             if (seller != null) {
+                HttpSession session = req.getSession();
+                session.setAttribute("seller", seller.getRegistrationNumber());
+
                 resp.sendRedirect("/views/seller.jsp");
             } else {
                 req.setAttribute("error", "해당하는 판매자를 찾을 수 없음");
