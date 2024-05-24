@@ -21,7 +21,7 @@ public class UserController extends HttpServlet {
         userService = new UserService();
 
         userService.save(
-                User.builder().user_id("user_id").password("password").address("seoul")
+                User.builder().userId("user_id").password("password").address("seoul")
                         .username("user1").build());
 
 //        PrintWriter out = resp.getWriter();

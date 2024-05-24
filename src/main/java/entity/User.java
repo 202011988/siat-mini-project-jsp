@@ -21,7 +21,7 @@ public class User {
 
 	@Id
 	@Column(name = "user_id", length = 50)
-	private String user_id;	// 유저 아이디
+	private String userId;	// 유저 아이디
 
 	@Column(length = 50, nullable = false)
 	private String password;	// 유저 비밀번호
