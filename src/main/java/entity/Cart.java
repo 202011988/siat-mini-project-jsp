@@ -35,6 +35,6 @@ public class Cart {
 
     @Column()
     private Integer quantity = 0; // 상품 수량
-    @Column()
-    private Integer price = 0; // 상품 가격
+//    @Column()
+//    private Integer price = 0; // 상품 가격
 }
