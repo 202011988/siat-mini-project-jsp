@@ -18,6 +18,8 @@ public class UserService {
         em = JPAUtil.getEntityManagerFactory().createEntityManager();
         tx = em.getTransaction();
         tx.begin();
+        
+        
     }
 
     @Transient

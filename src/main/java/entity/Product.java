@@ -2,14 +2,23 @@ package entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "products")
 public class Product {
 	@Id
@@ -17,10 +26,10 @@ public class Product {
 	private Integer id;	// 번호 
 	
 	@ManyToOne
-	@JoinColumn(name = "seller_id")
+	@JoinColumn(name = "registration_number")
 	private Seller seller;	// 판매자 번호
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "category_id")
 	private Category category;	// 카테고리 번호
 	

@@ -1,5 +1,6 @@
 package controller;
 
+import entity.Category;
 import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,27 +9,28 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import service.CategoryService;
 import service.UserService;
 
-@WebServlet(value = "/user")
-public class UserController extends HttpServlet {
+@WebServlet(value = "/categoty")
+public class CategoryController extends HttpServlet {
 
-    UserService userService;
+    CategoryService categoryService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        userService = new UserService();
+    	categoryService = new CategoryService();
 
-        userService.save(
-                User.builder().userid("user_id").password("password").address("seoul")
-                        .nickname("user1").build());
+    	categoryService.save(
+    			Category.builder().name("CPU").build());
 
         PrintWriter out = resp.getWriter();
-        for (int id : userService.getUserList()) {
+        for (int id : categoryService.getCategoryList()) {
             out.println(id);
         }
 
-        userService.off();
+        categoryService.off();
     }
 }

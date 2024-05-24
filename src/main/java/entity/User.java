@@ -23,7 +23,7 @@ public class User {
 	private Integer id;			// 번호
 	
 	@Column(length = 50, nullable = false)
-	private String username;	// 유저 아이디
+	private String userid;	// 유저 아이디
 
 	@Column(length = 50, nullable = false)
 	private String password;	// 유저 비밀번호
