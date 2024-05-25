@@ -53,7 +53,7 @@ public class LoginController extends HttpServlet {
             UserService userService = new UserService();
             System.out.println("user");
             User user = null;
-            user = userService.findUserByUsernameAndPassword(id, pw);
+            user = userService.findUserByUserIdAndPassword(id, pw);
 
             if (user != null) {
                 HttpSession session = req.getSession();

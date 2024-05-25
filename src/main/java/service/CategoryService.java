@@ -30,12 +30,12 @@ public class CategoryService {
     }
 
     public List<Integer> getCategoryList() {
-        String sql = "SELECT c FROM category c";
+        String sql = "SELECT c FROM Category c";
         return em.createNativeQuery(sql).getResultList();
     }
 
     public Category findCategory(String name) {
-        String sql = "SELECT p FROM product p";
+        String sql = "SELECT p FROM Product p";
         Category category = null;
         try {
         	category =  em.createQuery(sql, Category.class)

@@ -20,6 +20,13 @@ header {
   padding-bottom: 50px;
 }
 
+table {
+  border-right:none;
+  border-left:none;
+  border-top:none;
+  border-bottom:none;
+}
+
 /* Style the footer */
 footer {
   height: 50px;
