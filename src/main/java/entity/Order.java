@@ -28,11 +28,11 @@ public class Order {
     private Integer id; // 주문번호
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(nullable = false)
     private User user; // 유저번호
 
     @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
+    @JoinColumn(nullable = false)
     private Product product; // 상품번호
 
     @CreationTimestamp
@@ -41,5 +41,4 @@ public class Order {
 
     @Column(name = "quantity")
     private Integer quantity = 0; // 주문 수량
-
 }
