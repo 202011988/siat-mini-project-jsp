@@ -18,7 +18,7 @@
     <form action="/login.do" method="POST">
         <table align="center" cellpadding="5" cellspacing="1" width="600" border="0">
             <tr>
-                <td width="1270" height="20" colspan="2" bgcolor="#336699">
+                <td width="1320" height="20" colspan="2" bgcolor="#336699">
                     <p align="center">
                         <font color="white" size="3">
                             <b>로그인</b>
@@ -27,8 +27,8 @@
                 </td>
             </tr>
             <tr>
-                <td width="200" height="20">
-                    <p align="center"><b><span style="font-size:12pt;">ID</span></b></p>
+                <td width="250" height="20" align="center">
+                    <p align="right"><b><span style="font-size:12pt;">ID</span></b></p>
                 </td>
                 <td width="450" height="20" align="center">
                     <b>
@@ -39,8 +39,8 @@
                 </td>
             </tr>
             <tr>
-                <td width="200" height="20">
-                    <p align="center"><b><span style="font-size:12pt;">비밀번호</span></b></p>
+                <td width="250" height="20">
+                    <p align="right"><b><span style="font-size:12pt;">비밀번호</span></b></p>
                 </td>
                 <td width="450" height="20" align="center">
                     <b>
@@ -53,7 +53,7 @@
             </tr>
             <tr></tr>
             <tr>
-                <td width="200" height="20">
+                <td width="250" height="20">
                     <p><b><span style="font-size:12pt;"><input type="checkbox" id="seller", name="seller">
                             <label for="seller">관리자로 로그인</label></span></b></p>
                 </td>
@@ -75,7 +75,7 @@
     </form>
     <hr>
     <div align=center>
-        <span style="font-size:12pt;"><input type="button" value="메인으로" onclick="location.href=''"></span>
+        <span style="font-size:12pt;"><input type="button" value="메인으로" onclick="location.href='/'"></span>
     </div>
 </div>
 
