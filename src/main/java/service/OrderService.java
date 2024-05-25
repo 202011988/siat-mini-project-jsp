@@ -19,4 +19,8 @@ public class OrderService {
     public void saveAll(List<Order> orders) {
         orderRepository.saveAll(orders);
     }
+
+    public List<Order> findAllByUserId(String userId) {
+        return orderRepository.findAllByUserId(userId);
+    }
 }

@@ -1,9 +1,9 @@
 package repository;
 
-import entity.Cart;
 import entity.Order;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
 import java.util.List;
 import util.JPAUtil;
 
@@ -27,5 +27,12 @@ public class OrderRepository {
             em.persist(order);
         }
         tx.commit();
+    }
+
+    public List<Order> findAllByUserId(String userId) {
+        String sql = "SELECT o FROM Order o where o.user.id = :userId";
+        TypedQuery<Order> query = em.createQuery(sql, Order.class).setParameter("userId", userId);
+
+        return query.getResultList();
     }
 }
