@@ -18,29 +18,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(urlPatterns = {"*.do"}, 
-		initParams = {@WebInitParam(name = "excludeURL", value = "/login.do")})
+@WebFilter(urlPatterns = {"/insertCart.do", "/insertOrder", "/productInsert.do", "/orders.do"})
 public class LoginFilter extends HttpFilter implements Filter {
-	
-	private List<String> excludeURLList;
-	
-	public void init(FilterConfig fconfig) {
-		excludeURLList = new ArrayList<String>();
-		excludeURLList = Arrays.asList(fconfig.getInitParameter("excludeURL").split(","));
-	}
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		
-		HttpSession session = httpRequest.getSession(false);
+		HttpSession session = httpRequest.getSession();
 		
-		if(!excludeURLList.contains(httpRequest.getRequestURI())) {
-			if(session == null || session.getAttribute("userId") == null) {
+		if(session == null || (session.getAttribute("user") == null
+								&& session.getAttribute("seller") == null)) {
 				httpResponse.sendRedirect("/login.jsp");
 				return;
-			}
 		}
 		
 		chain.doFilter(request, response);
