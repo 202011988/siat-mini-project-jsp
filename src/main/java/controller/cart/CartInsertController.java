@@ -27,7 +27,7 @@ public class CartInsertController extends HttpServlet {
         // product 호출
 //        int productId = Integer.parseInt(req.getSession().getAttribute("productId").toString());
         String productId = req.getParameter("productId");
-        String userId = (String) req.getSession().getAttribute("user_id");
+        String userId = (String) req.getSession().getAttribute("user");
 
         if (productId.isEmpty() || userId.isEmpty()) {
             // TODO ERROR : MISSING Parameter
@@ -37,7 +37,7 @@ public class CartInsertController extends HttpServlet {
         Product choseProduct = productService.find(Integer.parseInt(productId));
 
         Cart newCart = Cart.builder()
-                .user(userService.findUserById(Integer.parseInt(userId)))
+                .user(userService.findUserById(userId))
                 .quantity(1)
                 .product(choseProduct)
                 .build();
