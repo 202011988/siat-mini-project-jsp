@@ -13,7 +13,7 @@ public class CartService {
         cartRepository = new CartRepository();
     }
 
-    public List<Cart> getCartListByUserId(int userId) {
+    public List<Cart> getCartListByUserId(String userId) {
         List<Cart> list = cartRepository.findCartListByUserId(userId);
         System.out.println(list);
         return list;
@@ -33,6 +33,10 @@ public class CartService {
 
     public Integer updateQuantity(int cardId, int quantity) {
         return cartRepository.updateQuantity(cardId, quantity);
+    }
+
+    public Cart find(Integer id) {
+        return cartRepository.findById(id);
     }
 }
 

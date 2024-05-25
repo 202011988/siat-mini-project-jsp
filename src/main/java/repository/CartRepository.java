@@ -29,7 +29,7 @@ public class CartRepository {
 //        off();
     }
 
-    public List<Cart> findCartListByUserId(int userId) {
+    public List<Cart> findCartListByUserId(String userId) {
         String sql = "SELECT c FROM Cart c WHERE c.user.id = :userId";
         TypedQuery<Cart> query = em.createQuery(sql, Cart.class).setParameter("userId", userId);
 
@@ -65,8 +65,10 @@ public class CartRepository {
         return result;
     }
 
-    public Cart findById(Integer cartId) {
+    public Cart findById(Integer id) {
         String sql = "SELECT c FROM Cart c WHERE c.id = :id";
-        return em.createQuery(sql, Cart.class).getSingleResult();
+        return em.createQuery(sql, Cart.class)
+                .setParameter("id", id)
+                .getSingleResult();
     }
 }
