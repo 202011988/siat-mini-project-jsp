@@ -2,6 +2,8 @@ package controller.order;
 
 import entity.Order;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,13 +35,16 @@ public class OrderInsertController extends HttpServlet {
             return;
         }
 
+        List<Order> orders = new ArrayList<>();
+
         for (String productId : products.split(", ")) {
-            orderService.save(Order.builder()
-                    .user(userService.findUserById(userId))
+            orders.add(Order.builder()
+                    .user(userService.findUserById(Integer.parseInt(userId)))
                     .quantity(1)
                     .product(productService.find(Integer.parseInt(productId)))
                     .build());
         }
 
+        orderService.saveAll(orders);
     }
 }
