@@ -30,7 +30,7 @@ public class OrderRepository {
     }
 
     public List<Order> findAllByUserId(String userId) {
-        String sql = "SELECT o FROM Order o where o.user.id = :userId";
+        String sql = "SELECT o FROM Order o where o.user.userId = :userId";
         TypedQuery<Order> query = em.createQuery(sql, Order.class).setParameter("userId", userId);
 
         return query.getResultList();

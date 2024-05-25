@@ -31,4 +31,8 @@ public class ProductService {
     public void delectProduct(Product product) {
         productRepository.delectProduct(product.getId());
     }
+
+    public Product find(int id) {
+        return productRepository.find(id);
+    }
 }

@@ -9,16 +9,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name = "orders")
 @Getter
 @Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Order {
@@ -28,7 +27,7 @@ public class Order {
     private Integer id; // 주문번호
 
     @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user; // 유저번호
 
     @ManyToOne

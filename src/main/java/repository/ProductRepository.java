@@ -1,6 +1,7 @@
 package repository;
 
 import entity.Product;
+import entity.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import java.util.List;
@@ -74,5 +75,12 @@ public class ProductRepository {
 
     public void off() {
         em.close();
+    }
+
+    public Product find(int id) {
+        Product product = null;
+        product = em.find(Product.class, id);
+
+        return product;
     }
 }

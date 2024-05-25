@@ -1,14 +1,19 @@
 package controller.order;
 
+import entity.Cart;
 import entity.Order;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import service.CartService;
 import service.OrderService;
 import service.ProductService;
 import service.UserService;
@@ -24,25 +29,36 @@ public class OrderInsertController extends HttpServlet {
         UserService userService = new UserService();
         ProductService productService = new ProductService();
         OrderService orderService = new OrderService();
-
+        CartService cartService = new CartService();
         // 유저가 주문했을 경우 주문 내역을 추가한다.
-        String userId = (String) req.getSession().getAttribute("user_id");
+        String userId = (String) req.getSession().getAttribute("user");
         // 장바구니에서 주문할 경우 제품 여러 개가 올 수도 있다.
-        String products = (String) req.getAttribute("products");
+//        String products = (String) req.getAttribute("products");
+        String[] products = req.getParameterValues("products");
+        System.out.println(Arrays.toString(products));
 
-        if (userId.isEmpty() || products.isEmpty()) {
+        if (userId.isEmpty() || products.length == 0) {
             // TODO ERROR : MISSING Parameter
             return;
         }
 
         List<Order> orders = new ArrayList<>();
 
-        for (String productId : products.split(", ")) {
+
+        // TODO : 2개 이상 선택 시 오류 발생
+        for (String productId : products) {
+
+            Cart temp = cartService.find(Integer.parseInt(productId));
+
             orders.add(Order.builder()
-                    .user(userService.findUserById(Integer.parseInt(userId)))
-                    .quantity(1)
-                    .product(productService.find(Integer.parseInt(productId)))
+                    .user(userService.findUserById(userId))
+                    .quantity(temp.getQuantity())
+                    .product(temp.getProduct())
+                    .orderedDate(LocalDate.now())
                     .build());
+
+            cartService.remove(Integer.parseInt(productId));
+
         }
 
         orderService.saveAll(orders);
