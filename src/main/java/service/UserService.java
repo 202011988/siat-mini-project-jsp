@@ -6,52 +6,34 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import jakarta.transaction.Transactional;
 
+import repository.UserRepository;
 import util.JPAUtil;
 
 public class UserService {
 
-    EntityManager em;
-    EntityTransaction tx;
+    private final UserRepository userRepository;
 
     public UserService() {
-        em = JPAUtil.getEntityManagerFactory().createEntityManager();
-        tx = em.getTransaction();
-        tx.begin();
+        userRepository = new UserRepository();
     }
 
     public void save(User user) {
-        em.persist(user);
-        tx.commit();
+        userRepository.save(user);
     }
 
 
-    public User findUserByUsernameAndPassword(String username, String password) {
-        String sql = "SELECT u FROM User u WHERE u.username = :id AND u.password = :pw";
-        User user = null;
-        try {
-        	
-            user =  em.createQuery(sql, User.class)
-                    .setParameter("id", username)
-                    .setParameter("pw", password)
-                    .getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
-        return user;
+    public User findUserByUserIdAndPassword(String userId, String password) {
+        return userRepository.findUserByUserIdAndPassword(userId, password);
     }
 
 
-    public User findUserById(String userId) {
-        User user = null;
-        user = em.find(User.class, userId);
-
-        return user;
+    public User findUserById(int userId) {
+        return userRepository.findUserById(userId);
     }
 
 
     public void off() {
-        em.close();
+        userRepository.off();
     }
-
 
 }

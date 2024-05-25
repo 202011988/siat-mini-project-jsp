@@ -16,9 +16,9 @@
 <div id="container">
     <!-- action, method -->
     <form action="/login.do" method="POST">
-        <table align="center" cellpadding="5" cellspacing="1" width="600" border="1">
+        <table align="center" cellpadding="5" cellspacing="1" width="600" border="0">
             <tr>
-                <td width="1220" height="20" colspan="2" bgcolor="#336699">
+                <td width="1270" height="20" colspan="2" bgcolor="#336699">
                     <p align="center">
                         <font color="white" size="3">
                             <b>로그인</b>
@@ -27,7 +27,7 @@
                 </td>
             </tr>
             <tr>
-                <td width="150" height="20">
+                <td width="200" height="20">
                     <p align="center"><b><span style="font-size:12pt;">ID</span></b></p>
                 </td>
                 <td width="450" height="20" align="center">
@@ -39,7 +39,7 @@
                 </td>
             </tr>
             <tr>
-                <td width="150" height="20">
+                <td width="200" height="20">
                     <p align="center"><b><span style="font-size:12pt;">비밀번호</span></b></p>
                 </td>
                 <td width="450" height="20" align="center">
@@ -51,9 +51,11 @@
                     </b>
                 </td>
             </tr>
+            <tr></tr>
             <tr>
-                <td width="150" height="20">
-                    <p><b><span style="font-size:12pt;">&nbsp;</span></b></p>
+                <td width="200" height="20">
+                    <p><b><span style="font-size:12pt;"><input type="checkbox" id="seller", name="seller">
+                            <label for="seller">관리자로 로그인</label></span></b></p>
                 </td>
                 <td width="450" height="20" align="center">
                     <b>
@@ -64,8 +66,7 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="button" value="회원가입" onclick="location.href='/views/register/select.jsp'">
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" id="seller", name="seller">
-                            <label for="seller">관리자로 로그인</label>
+
 						</span>
                     </b>
                 </td>

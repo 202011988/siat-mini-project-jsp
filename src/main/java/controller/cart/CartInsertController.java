@@ -37,7 +37,7 @@ public class CartInsertController extends HttpServlet {
         Product choseProduct = productService.find(Integer.parseInt(productId));
 
         Cart newCart = Cart.builder()
-                .user(userService.findUserById(userId))
+                .user(userService.findUserById(Integer.parseInt(userId)))
                 .quantity(1)
                 .product(choseProduct)
                 .build();

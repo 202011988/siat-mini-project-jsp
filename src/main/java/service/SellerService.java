@@ -6,61 +6,41 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.Transient;
 import java.util.List;
+
+import repository.CartRepository;
+import repository.SellerRepository;
 import util.JPAUtil;
 
 public class SellerService {
 
-    EntityManager em;
-    EntityTransaction tx;
+    private final SellerRepository sellerRepository;
 
     public SellerService() {
-        em = JPAUtil.getEntityManagerFactory().createEntityManager();
-        tx = em.getTransaction();
-        tx.begin();
+        sellerRepository = new SellerRepository();
     }
+
+
 
     @Transient
     public void save(Seller seller) {
-        em.persist(seller);
-
-        tx.commit();
+        sellerRepository.save(seller);
     }
 
     @Transient
     public void saveAll(List<Seller> sellers) {
-        for (Seller seller : sellers) {
-            em.persist(seller);
-        }
-        tx.commit();
+        sellerRepository.saveAll(sellers);
     }
 
     public Seller findSellerById(int sellerId) {
-        Seller seller = null;
-        try {
-            seller = em.find(Seller.class, sellerId);
-        } catch (Exception e) {
-
-        }
-
-        return seller;
+         return sellerRepository.findSellerById(sellerId);
     }
 
     public Seller findSellerByRegistrationNumberAndPassword(String registrationNumber,
             String password) {
-        String sql = "SELECT s FROM Seller s WHERE s.registrationNumber = :id AND s.password = :pw";
-        Seller seller = null;
-        try {
-            seller = em.createQuery(sql, Seller.class)
-                    .setParameter("id", registrationNumber)
-                    .setParameter("pw", password)
-                    .getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
-        return seller;
+        return sellerRepository.findSellerByRegistrationNumberAndPassword(registrationNumber, password);
     }
 
     public void off() {
-        em.close();
+        sellerRepository.off();
     }
 }
