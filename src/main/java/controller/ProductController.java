@@ -35,9 +35,9 @@ public class ProductController extends HttpServlet {
                 .stock(100)
                 .name("AMD 라이젠5-4세대 5600G (세잔) (멀티팩(정품))")
                 .build();
-        productService.save(product1);
+//        productService.save(product1);
 
         
-        productService.off();
+//        productService.off();
     }
 }

@@ -1,41 +1,34 @@
 package service;
 
-import java.util.List;
 import entity.Product;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.transaction.Transactional;
-import util.JPAUtil;
+import java.util.List;
+import repository.ProductRepository;
 
 public class ProductService {
-    EntityManager em;
-    EntityTransaction tx;
+
+    private final ProductRepository productRepository;
 
     public ProductService() {
-        em = JPAUtil.getEntityManagerFactory().createEntityManager();
-        tx = em.getTransaction();
-        tx.begin();
+        productRepository = new ProductRepository();
     }
 
-    @Transactional
-    public void save(Product product) {
-        em.persist(product);
-        System.out.println(product.getSeller().getRegistrationNumber());
-        tx.commit();
-    }
-    @Transactional
-    public void saveAll(List<Product> products) {
-        for (Product product : products) {
-            em.persist(product);
-        }
-        tx.commit();
+    public void saveAll(List<Product> product) {
+        productRepository.saveAll(product);
     }
 
-    public void off() {
-        em.close();
+    public void findProductListAll() {
+        productRepository.findProductListAll();
     }
 
-    public Product find(int productId) {
-        return em.find(Product.class, productId);
+    public void insertProduct(Product product) {
+        productRepository.insertProduct(product);
+    }
+
+    public void updateProduct(Product product) {
+        productRepository.updateProduct(product);
+    }
+
+    public void delectProduct(Product product) {
+        productRepository.delectProduct(product.getId());
     }
 }

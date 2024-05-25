@@ -1,14 +1,10 @@
 package service;
 
-import jakarta.transaction.Transactional;
-import java.util.List;
-
 import entity.Category;
-import entity.Product;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
-import jakarta.persistence.Transient;
+import java.util.List;
 import util.JPAUtil;
 
 public class CategoryService {
@@ -22,7 +18,6 @@ public class CategoryService {
         tx.begin();
     }
 
-    @Transactional
     public void save(Category category) {
         em.persist(category);
 
@@ -38,8 +33,8 @@ public class CategoryService {
         String sql = "SELECT p FROM Product p";
         Category category = null;
         try {
-        	category =  em.createQuery(sql, Category.class)
-                    .setParameter("CPU", name)
+            category = em.createQuery(sql, Category.class)
+//                    .setParameter("CPU", name)
                     .getSingleResult();
         } catch (NoResultException e) {
             return null;
@@ -47,7 +42,6 @@ public class CategoryService {
         return category;
     }
 
-    @Transactional
     public void saveAll(List<Category> categories) {
         for (Category category : categories) {
             em.persist(category);
