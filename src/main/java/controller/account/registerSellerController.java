@@ -1,4 +1,4 @@
-package controller;
+package controller.account;
 
 import entity.Seller;
 import service.SellerService;
