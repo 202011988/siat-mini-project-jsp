@@ -75,4 +75,12 @@ public class CartRepository {
                 .setParameter("id", id)
                 .getSingleResult();
     }
+
+    public Cart findByUserIdAndProductId(String userId, Integer productId) {
+        String sql = "SELECT c FROM Cart c WHERE c.user.id = :userId AND c.product.id = :productId";
+        return em.createQuery(sql, Cart.class)
+                .setParameter("userId", userId)
+                .setParameter("productId", productId)
+                .getSingleResult();
+    }
 }

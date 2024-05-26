@@ -24,36 +24,6 @@ public class CartInsertController extends HttpServlet {
     // 장바구니 추가
     // 입력 정보: User, product
 
-//    @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-//            throws ServletException, IOException {
-//        UserService userService = new UserService();
-//        ProductService productService = new ProductService();
-//        CartService cartService = new CartService();
-//
-//        // product 호출
-////        int productId = Integer.parseInt(req.getSession().getAttribute("productId").toString());
-//        String productId = req.getParameter("productId");
-//        String userId = (String) req.getSession().getAttribute("user");
-//
-//        if (productId.isEmpty() || userId.isEmpty()) {
-//            // TODO ERROR : MISSING Parameter
-//            return;
-//        }
-//
-//        Product choseProduct = productService.find(Integer.parseInt(productId));
-//
-//        Cart newCart = Cart.builder()
-//                .user(userService.findUserById(userId))
-//                .quantity(1)
-//                .product(choseProduct)
-//                .build();
-//
-//        cartService.save(newCart);
-//
-//        // TODO: response HTTPState
-//    }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -84,19 +54,28 @@ public class CartInsertController extends HttpServlet {
                 return;
             }
 
-            UserService userService = new UserService();
-            User user = userService.findUserById(userId);
-
-            ProductService productService = new ProductService();
-            Product product = productService.find(Integer.parseInt(productId));
-
-            Cart newCart = Cart.builder()
-                    .quantity(1)
-                    .user(user)
-                    .product(product)
-                    .build();
+            // 장바구니에 존재한다면
             CartService cartService = new CartService();
-            cartService.save(newCart);
+            Cart foundCart = cartService.findByUserIdAndProductId(userId, Integer.parseInt(productId));
+            if (foundCart != null) {
+                System.out.println("...");
+                cartService.updateQuantity(foundCart.getId(), foundCart.getQuantity() + 1);
+            } else {
+                System.out.println("new");
+                UserService userService = new UserService();
+                User user = userService.findUserById(userId);
+
+                ProductService productService = new ProductService();
+                Product product = productService.find(Integer.parseInt(productId));
+
+                Cart newCart = Cart.builder()
+                        .quantity(1)
+                        .user(user)
+                        .product(product)
+                        .build();
+                cartService.save(newCart);
+            }
+
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

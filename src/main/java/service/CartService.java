@@ -1,6 +1,7 @@
 package service;
 
 import entity.Cart;
+import jakarta.persistence.NoResultException;
 import jakarta.transaction.Transactional;
 import java.util.List;
 import repository.CartRepository;
@@ -41,6 +42,14 @@ public class CartService {
 
     public Cart find(Integer id) {
         return cartRepository.findById(id);
+    }
+
+    public Cart findByUserIdAndProductId(String userId, Integer productId) {
+        try {
+            return cartRepository.findByUserIdAndProductId(userId, productId);
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 }
 
