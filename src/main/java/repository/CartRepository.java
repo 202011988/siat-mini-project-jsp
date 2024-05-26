@@ -3,10 +3,8 @@ package repository;
 import entity.Cart;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Query;
 import jakarta.persistence.Transient;
 import jakarta.persistence.TypedQuery;
-import jakarta.transaction.Transactional;
 import java.util.List;
 import util.JPAUtil;
 
@@ -48,12 +46,17 @@ public class CartRepository {
         tx.commit();
     }
 
-    public Integer remove(Integer cartId) {
-        String sql = "DELETE FROM Cart c WHERE c.id = :id";
-        Integer result = em.createQuery(sql).setParameter("id", cartId).executeUpdate();
+    public void removeAll(List<Integer> cartIds) {
+        int result;
+        for (Integer id : cartIds) {
+            String sql = "DELETE FROM Cart c WHERE c.id = :id";
+            result = em.createQuery(sql).setParameter("id", id).executeUpdate();
+            if (result != 1) {
+                return;
+            }
+        }
 
         tx.commit();
-        return result;
     }
 
     public Integer updateQuantity(int cartId, int quantity) {

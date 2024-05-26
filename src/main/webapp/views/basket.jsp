@@ -18,7 +18,7 @@
     Order List
 </h1>
 
-<form action="/insertOrder" method="get">
+<form action="/insertOrder" method="post">
     <table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
         <tr>
             <td bgcolor="#336699">
@@ -89,7 +89,6 @@
     </table>
 
     <input type="submit" value="주문하기" />
-
 </form>
 
 <%@ include file="/views/layout/footer.jsp" %>

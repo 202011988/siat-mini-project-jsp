@@ -27,7 +27,7 @@ public class CartRemoveController extends HttpServlet {
         CartService cartService = new CartService();
 
         // TODO Integer if 분기점
-        System.out.println(cartService.remove(Integer.parseInt(cartId)));
+        cartService.remove(Integer.parseInt(cartId));
 
     }
 }

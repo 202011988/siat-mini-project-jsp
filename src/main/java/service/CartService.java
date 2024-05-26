@@ -27,8 +27,12 @@ public class CartService {
         cartRepository.saveAll(carts);
     }
 
-    public Integer remove(Integer cartId) {
-        return cartRepository.remove(cartId);
+    public void remove(Integer cartId) {
+        cartRepository.removeAll(List.of(cartId));
+    }
+
+    public void removeAll(List<Integer> cartIds) {
+        cartRepository.removeAll(cartIds);
     }
 
     public Integer updateQuantity(int cardId, int quantity) {
