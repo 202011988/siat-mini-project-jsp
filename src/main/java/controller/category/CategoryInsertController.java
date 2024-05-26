@@ -15,7 +15,7 @@ import service.CategoryService;
 public class CategoryInsertController extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		CategoryService categoryService = new CategoryService();
 

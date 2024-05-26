@@ -16,7 +16,7 @@ public class CartInsertController extends HttpServlet {
     // 입력 정보: User, product
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         UserService userService = new UserService();
         ProductService productService = new ProductService();

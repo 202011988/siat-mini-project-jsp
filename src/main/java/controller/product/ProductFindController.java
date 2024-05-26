@@ -17,20 +17,20 @@ import java.util.List;
 public class ProductFindController extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-		User user = (User) req.getSession().getAttribute("user");
-		HttpSession session = req.getSession();
-		session.setAttribute("user", user.getUserId());
+
 
     	ProductService productService = new ProductService();
-		String userId = req.getParameter("user");
+
+		String userId = req.getParameter("userId");
 
 		if(userId != null && !userId.isEmpty()){
 			List<Product> productUserFinadAll = productService.findUserProductListAll();
 			req.setAttribute("productUserFinadALl", productUserFinadAll);
 			resp.sendRedirect("/views/productUser.jsp");
+			
 		}
 
 

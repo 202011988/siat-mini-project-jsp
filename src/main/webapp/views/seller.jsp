@@ -50,8 +50,8 @@ th {
 <body>
 	<h1 align="center">판매자 관리 페이지</h1>
 	<div class="buttons-container">
-		<button onclick="#">수정</button>
-		<button onclick="#">삭제</button>
+		<button onclick="/productUpdate.do">수정</button>
+		<button onclick="/productRemove.do">삭제</button>
 	</div>
 	<div class="contatier">
 		<div class="table-container">
