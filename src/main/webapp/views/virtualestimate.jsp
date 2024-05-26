@@ -120,6 +120,13 @@
                 <p class="price">478,500원</p>
                 <button class="buy-btn">담기</button>
             </div>
+            <div class="product-item" id="2"> <%-- 이 코드에 id를 추가한다 (product's id) --%>
+                <img src="product1.jpg" alt="인텔 코어i5-14세대 14600K (렙터레이크 리프레시)">
+                <h3>인텔 코어i5-14세대 14600K (렙터레이크 리프레시) (정품)</h3>
+                <p>인텔소켓:1700/10nm/렙터레이크/P6+E8코어/12+8논리코어/클럭:3.5GHz/최대 클럭:5.3GHz/L2 캐시:20MB...</p>
+                <p class="price">478,500원</p>
+                <button class="buy-btn">담기</button>
+            </div>
         </div>
     </div>
 
@@ -130,7 +137,7 @@
         btn.addEventListener('click', () => {
           const productId = btn.closest('.product-item').id;
 
-          console.log(productId);
+          console.log(productId[0]);
 
           // productId 를 서버로 전송하는 코드
           fetch("http://localhost:8080/insertCart.do", {
@@ -139,7 +146,7 @@
             headers: {
               'Content-Type': 'application/json'
             }
-          }).then(() => alert("Add the product"))
+          })
         })
       })
     </script>

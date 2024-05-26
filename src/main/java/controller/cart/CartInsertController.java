@@ -61,7 +61,6 @@ public class CartInsertController extends HttpServlet {
         StringBuilder buffer = new StringBuilder();
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(req.getInputStream(), StandardCharsets.UTF_8));
-
         String line;
 
         while ((line = reader.readLine()) != null) {
@@ -69,12 +68,16 @@ public class CartInsertController extends HttpServlet {
         }
 
         String payload = buffer.toString();
-        System.out.println(payload);
         try {
             ObjectMapper mapper = new ObjectMapper();
             Map<String, Object> data = mapper.readValue(payload, Map.class);
             String productId = (String) data.get("productId");
             String userId = (String) req.getSession().getAttribute("user");
+
+            if (userId.isEmpty()) {
+                // TODO ERROR
+                return;
+            }
 
             if (productId.isEmpty()) {
                 // TODO ERROR

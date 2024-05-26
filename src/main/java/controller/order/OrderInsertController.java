@@ -18,48 +18,6 @@ public class OrderInsertController extends HttpServlet {
     // 주문 추가
     // 입력 정보: User, product
 
-//    @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-//            throws ServletException, IOException {
-//        UserService userService = new UserService();
-//        ProductService productService = new ProductService();
-//        OrderService orderService = new OrderService();
-//        CartService cartService = new CartService();
-//        // 유저가 주문했을 경우 주문 내역을 추가한다.
-//        String userId = (String) req.getSession().getAttribute("user");
-//        // 장바구니에서 주문할 경우 제품 여러 개가 올 수도 있다.
-////        String products = (String) req.getAttribute("products");
-//        String[] products = req.getParameterValues("products");
-//        System.out.println(Arrays.toString(products));
-//
-//        if (userId.isEmpty() || products.length == 0) {
-//            // TODO ERROR : MISSING Parameter
-//            return;
-//        }
-//
-//        List<Order> orders = new ArrayList<>();
-//
-//
-//        // TODO : 2개 이상 선택 시 오류 발생
-//        for (String productId : products) {
-//
-//            Cart temp = cartService.find(Integer.parseInt(productId));
-//
-//            orders.add(Order.builder()
-//                    .user(userService.findUserById(userId))
-//                    .quantity(temp.getQuantity())
-//                    .product(temp.getProduct())
-//                    .orderedDate(LocalDate.now())
-//                    .build());
-//
-//            cartService.remove(Integer.parseInt(productId));
-//
-//        }
-//
-//        orderService.saveAll(orders);
-//    }
-
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -93,5 +51,7 @@ public class OrderInsertController extends HttpServlet {
 
         cartService.removeAll(cartIds);
         orderService.saveAll(orders);
+
+        resp.sendRedirect("http://localhost:8080/orders.do");
     }
 }

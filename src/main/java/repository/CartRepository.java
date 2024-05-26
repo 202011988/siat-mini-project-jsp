@@ -6,6 +6,7 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Transient;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
+import java.util.stream.Collectors;
 import util.JPAUtil;
 
 public class CartRepository {
@@ -48,6 +49,7 @@ public class CartRepository {
 
     public void removeAll(List<Integer> cartIds) {
         int result;
+
         for (Integer id : cartIds) {
             String sql = "DELETE FROM Cart c WHERE c.id = :id";
             result = em.createQuery(sql).setParameter("id", id).executeUpdate();
@@ -55,7 +57,6 @@ public class CartRepository {
                 return;
             }
         }
-
         tx.commit();
     }
 
