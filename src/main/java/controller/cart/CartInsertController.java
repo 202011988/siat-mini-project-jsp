@@ -54,19 +54,28 @@ public class CartInsertController extends HttpServlet {
                 return;
             }
 
-            UserService userService = new UserService();
-            User user = userService.findUserById(userId);
-
-            ProductService productService = new ProductService();
-            Product product = productService.find(Integer.parseInt(productId));
-
-            Cart newCart = Cart.builder()
-                    .quantity(1)
-                    .user(user)
-                    .product(product)
-                    .build();
+            // 장바구니에 존재한다면
             CartService cartService = new CartService();
-            cartService.save(newCart);
+            Cart foundCart = cartService.findByUserIdAndProductId(userId, Integer.parseInt(productId));
+            if (foundCart != null) {
+                System.out.println("...");
+                cartService.updateQuantity(foundCart.getId(), foundCart.getQuantity() + 1);
+            } else {
+                System.out.println("new");
+                UserService userService = new UserService();
+                User user = userService.findUserById(userId);
+
+                ProductService productService = new ProductService();
+                Product product = productService.find(Integer.parseInt(productId));
+
+                Cart newCart = Cart.builder()
+                        .quantity(1)
+                        .user(user)
+                        .product(product)
+                        .build();
+                cartService.save(newCart);
+            }
+
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
