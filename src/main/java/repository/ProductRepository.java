@@ -17,10 +17,9 @@ public class ProductRepository {
         tx.begin();
     }
 
-    public List<Product> findProductListAll(String userId) {
-        String sql = "SELECT d FROM Product d where d.userId = :userId ";
+    public List<Product> findProductListAll() {
+        String sql = "SELECT d FROM Product d";
         List<Product> productList = em.createQuery(sql, Product.class)
-                .setParameter("userId", userId)
                 .getResultList();
         System.out.println(productList);
         return productList;
