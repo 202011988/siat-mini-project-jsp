@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import service.OrderService;
 
-@WebServlet(value = "/orders1")
+@WebServlet(value = "/orders.do")
 public class OrderListSelectController extends HttpServlet {
     // 주문 목록
     // 입력 정보: user (Session : userId)

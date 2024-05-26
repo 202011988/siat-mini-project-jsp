@@ -23,8 +23,8 @@ public class CartRemoveController extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        // ???? ??
-        // ?? ??: Cart
+        // 장바구니 삭제
+        // 입력 정보: Cart
 
         CartService cartService = new CartService();
 
