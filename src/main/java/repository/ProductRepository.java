@@ -87,6 +87,11 @@ public boolean insertProduct(Product product) {
         em.close();
     }
 
+    public Product find(int id) {
+        Product product = null;
+        product = em.find(Product.class, id);
 
+        return product;
+    }
 
 }
