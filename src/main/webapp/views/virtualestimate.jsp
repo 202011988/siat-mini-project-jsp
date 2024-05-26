@@ -1,14 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: gntod
-  Date: 2024-05-23
-  Time: 오후 3:30
-  To change this template use File | Settings | File Templates.
---%>
 <html>
 <head>
     <title>PC 견적</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <link href="/static/css/layout.css" rel="stylesheet" type="text/css">
 </head>
 <%@ include file="/views/layout/header.jsp" %>
@@ -115,12 +108,51 @@
 </div>
 
 <div class="product-container">
+
+    <%--test--%>
+
+    <div class="product-category" id="cpu">
+        <div class="product-list">
+            <div class="product-item" id="1"> <%-- 이 코드에 id를 추가한다 (product's id) --%>
+                <img src="product1.jpg" alt="인텔 코어i5-14세대 14600K (렙터레이크 리프레시)">
+                <h3>인텔 코어i5-14세대 14600K (렙터레이크 리프레시) (정품)</h3>
+                <p>인텔소켓:1700/10nm/렙터레이크/P6+E8코어/12+8논리코어/클럭:3.5GHz/최대 클럭:5.3GHz/L2 캐시:20MB...</p>
+                <p class="price">478,500원</p>
+                <button class="buy-btn">담기</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      const buyBtns = document.querySelectorAll('.buy-btn');
+
+      buyBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const productId = btn.closest('.product-item').id;
+
+          console.log(productId);
+
+          // productId 를 서버로 전송하는 코드
+          fetch("http://localhost:8080/insertCart.do", {
+            method: 'POST',
+            body: JSON.stringify({productId}),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }).then(() => alert("Add the product"))
+        })
+      })
+    </script>
+
+    <%-- end test--%>
+
     <div class="product-category" id="cpu">
         <div class="product-list">
             <div class="product-item">
                 <img src="product1.jpg" alt="인텔 코어i5-14세대 14600K (렙터레이크 리프레시)">
                 <h3>인텔 코어i5-14세대 14600K (렙터레이크 리프레시) (정품)</h3>
-                <p>인텔소켓:1700/10nm/렙터레이크/P6+E8코어/12+8논리코어/클럭:3.5GHz/최대 클럭:5.3GHz/L2 캐시:20MB...</p>
+                <p>인텔소켓:1700/10nm/렙터레이크/P6+E8코어/12+8논리코어/클럭:3.5GHz/최대 클럭:5.3GHz/L2
+                    캐시:20MB...</p>
                 <p class="price">478,500원</p>
                 <button class="buy-btn">담기</button>
             </div>
@@ -165,7 +197,8 @@
             <div class="product-item">
                 <img src="product1.jpg" alt="MSI MAG 코어리퀴드 M360 박격포">
                 <h3>MSI MAG 코어리퀴드 M360 박격포</h3>
-                <p>CPU 쿨러/수랭/팬 굽림/A/S기간5년/[호환]/극기/인텔 소켓LGA1700,LGA1200,LGA2066,LGA2011-V3,LGA...</p>
+                <p>CPU 쿨러/수랭/팬 굽림/A/S기간5년/[호환]/극기/인텔
+                    소켓LGA1700,LGA1200,LGA2066,LGA2011-V3,LGA...</p>
                 <p class="price">86,400원</p>
                 <button class="buy-btn">담기</button>
             </div>
@@ -214,7 +247,8 @@
             <div class="product-item">
                 <img src="product1.jpg" alt="MSI 지포스 RTX 4070 Ti SUPER">
                 <h3>MSI 지포스 RTX 4070 Ti SUPER 벤투스 3X OC D6X 16GB</h3>
-                <p>RTX 4070 Ti SUPER/4nm/메모리:23.40GHz/부스트클럭:2640MHz/OC클럭:2655MHz/스트림 프로세서:...</p>
+                <p>RTX 4070 Ti SUPER/4nm/메모리:23.40GHz/부스트클럭:2640MHz/OC클럭:2655MHz/스트림
+                    프로세서:...</p>
                 <p class="price">1,225,800원</p>
                 <button class="buy-btn">담기</button>
             </div>

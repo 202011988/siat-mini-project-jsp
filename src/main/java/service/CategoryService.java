@@ -20,7 +20,13 @@ public class CategoryService {
 
     public void save(Category category) {
         em.persist(category);
+        tx.commit();
+    }
 
+    public void saveAll(List<Category> categories) {
+        for (Category category : categories) {
+            em.persist(category);
+        }
         tx.commit();
     }
 
@@ -40,13 +46,6 @@ public class CategoryService {
             return null;
         }
         return category;
-    }
-
-    public void saveAll(List<Category> categories) {
-        for (Category category : categories) {
-            em.persist(category);
-        }
-        tx.commit();
     }
 
     public void off() {

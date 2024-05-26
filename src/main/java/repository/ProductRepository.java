@@ -26,10 +26,9 @@ public class ProductRepository {
 
     public void saveAll(List<Product> product) {
         for (Product products : product) {
-
             em.persist(products);
         }
-
+        tx.commit();
     }
 
     public void insertProduct(Product product) {
