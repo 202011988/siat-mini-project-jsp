@@ -18,7 +18,7 @@
     Order List
 </h1>
 
-<form action="/insertOrder" method="post">
+<form action="/insertOrder.do" method="post">
     <table align="center" border="0" cellpadding="5" cellspacing="2" width="100%"
            bordercolordark="white" bordercolorlight="black">
         <tr>

@@ -16,20 +16,27 @@ public class ProductService {
         productRepository.saveAll(product);
     }
 
-    public void findProductListAll() {
-        productRepository.findProductListAll();
+
+    public List<Product> findUserProductListAll() {
+        return productRepository.findProductListAll();
+
+    }
+    public List<Product> findAllBySellerId(String sellerId) {
+        return productRepository.findAllBySellerId(sellerId);
+
     }
 
-    public void insertProduct(Product product) {
-        productRepository.insertProduct(product);
+    public Boolean insertProduct(Product product) {
+       return productRepository.insertProduct(product);
     }
 
-    public void updateProduct(Product product) {
-        productRepository.updateProduct(product);
+    public Boolean updateProduct(Product product) {
+        return productRepository.updateProduct(product);
+
     }
 
-    public void delectProduct(Product product) {
-        productRepository.delectProduct(product.getId());
+    public Boolean deleteProduct(int productId) {
+       return productRepository.delectProduct(productId);
     }
 
     public Product find(int id) {

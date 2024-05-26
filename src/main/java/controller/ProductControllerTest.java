@@ -1,12 +1,8 @@
 package controller;
 
-import entity.Cart;
 import entity.Category;
-import entity.Product;
-import entity.Seller;
-import entity.User;
+
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

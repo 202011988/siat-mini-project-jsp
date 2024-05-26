@@ -1,54 +1,36 @@
 package service;
 
 import entity.Category;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.NoResultException;
+import repository.CategoryRepository;
+
 import java.util.List;
-import util.JPAUtil;
 
 public class CategoryService {
 
-    EntityManager em;
-    EntityTransaction tx;
+    private final CategoryRepository categoryRepository;
 
     public CategoryService() {
-        em = JPAUtil.getEntityManagerFactory().createEntityManager();
-        tx = em.getTransaction();
-        tx.begin();
+        categoryRepository = new CategoryRepository();
     }
 
-    public void save(Category category) {
-        em.persist(category);
-        tx.commit();
+    public Category findCategory(String categoryName) {
+        return categoryRepository.findCategory(categoryName);
     }
 
-    public void saveAll(List<Category> categories) {
-        for (Category category : categories) {
-            em.persist(category);
-        }
-        tx.commit();
+    public void deleteProduct(Category category) {
+        categoryRepository.deleteProduct(category.getId());
+
     }
 
-    public List<Integer> getCategoryList() {
-        String sql = "SELECT c FROM Category c";
-        return em.createNativeQuery(sql).getResultList();
+    public void saveAll(List<Category> categoryCpu) {
+        categoryRepository.saveAll(categoryCpu);
     }
 
-    public Category findCategory(String name) {
-        String sql = "SELECT p FROM Product p";
-        Category category = null;
-        try {
-            category = em.createQuery(sql, Category.class)
-//                    .setParameter("CPU", name)
-                    .getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
-        return category;
+    public List<Category> insertCategoryService(Category category) {
+        return categoryRepository.insertCategory(category.getId());
     }
 
     public void off() {
-        em.close();
+        categoryRepository.off();
     }
 }

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.CartService;
 import service.OrderService;
 
-@WebServlet(value = "/insertOrder")
+@WebServlet(value = "/insertOrder.do")
 public class OrderInsertController extends HttpServlet {
     // 주문 추가
     // 입력 정보: User, product
