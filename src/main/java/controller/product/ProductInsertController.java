@@ -49,10 +49,10 @@ public class ProductInsertController extends HttpServlet {
     				.name(productName)
     				.build();
     		
-    		System.out.println(product);
+
     		productService.insertProduct(product);
 		} catch (Exception e) {
-			
+			System.out.println(e);
 		}
     }
 }

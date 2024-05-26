@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.OrderService;
 
-@WebServlet(value = "/orders.do")
+@WebServlet(value = "/orders1")
 public class OrderListSelectController extends HttpServlet {
     // 주문 목록
     // 입력 정보: user

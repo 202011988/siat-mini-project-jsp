@@ -11,10 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import entity.Product;
 import entity.Seller;
+import org.jetbrains.annotations.NotNull;
 import service.ProductService;
 import service.UserService;
 
-@WebServlet(value = "/productUpdate.do")
+@WebServlet(value = "/productUpdate")
 public class ProductUpdateController extends HttpServlet {
 
     @Override
@@ -23,20 +24,20 @@ public class ProductUpdateController extends HttpServlet {
 
     	ProductService productService = new ProductService();
 
+
     	String productId = req.getParameter("id");
     	String productPrice = req.getParameter("productPrice");
     	String productDescription = req.getParameter("description");
     	String productStock = req.getParameter("stock");
     	String productName = req.getParameter("name");
-    	
+
     	Product product = new Product();
-    	
     	try {
-    		
+
     		int productIdInt = Integer.parseInt(productId);
     		int productPriceInt = Integer.parseInt(productPrice);
     		int productStockInt = Integer.parseInt(productStock);
-    		
+
     		product = Product.builder()
     				.id(productIdInt)
     				.price(productPriceInt)
@@ -44,11 +45,12 @@ public class ProductUpdateController extends HttpServlet {
     				.stock(productStockInt)
     				.name(productName)
     				.build();
-    		
-    		System.out.println(product);
+
+
     		productService.updateProduct(product);
 		} catch (Exception e) {
-			
+			System.out.println(e);
+
 		}
     }
 }

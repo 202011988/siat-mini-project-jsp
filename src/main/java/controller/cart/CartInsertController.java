@@ -34,15 +34,15 @@ public class CartInsertController extends HttpServlet {
             return;
         }
 
-        Product choseProduct = productService.find(Integer.parseInt(productId));
+//        Product choseProduct = productService.find(Integer.parseInt(productId));
 
-        Cart newCart = Cart.builder()
-                .user(userService.findUserById(Integer.parseInt(userId)))
-                .quantity(1)
-                .product(choseProduct)
-                .build();
+//        Cart newCart = Cart.builder()
+//                .user(userService.findUserById(Integer.parseInt(userId)))
+//                .quantity(1)
+//                .product(choseProduct)
+//                .build();
 
-        cartService.save(newCart);
+//        cartService.save(newCart);
 
         // TODO: response HTTPState
     }

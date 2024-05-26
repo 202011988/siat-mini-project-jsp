@@ -49,6 +49,7 @@ public class StartController extends HttpServlet {
                 .description("우주 초월한 CPU 입니다. 1조년 걸리는 복호화를 1초만에!")
                 .price(100)
                 .seller(seller1)
+                .stock(100)
                 .build();
         Product product2 = Product.builder()
                 .id(null)
@@ -56,6 +57,7 @@ public class StartController extends HttpServlet {
                 .name("CPU i9999와 호환되는 국가권력급 우주 차세대 보드")
                 .description("대역폭 무한입니다!!")
                 .price(500)
+                .stock(100)
                 .seller(seller2)
                 .build();
         productService.saveAll(List.of(product1, product2));

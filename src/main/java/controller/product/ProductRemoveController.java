@@ -15,17 +15,17 @@ import service.CartService;
 import service.ProductService;
 import service.UserService;
 
-@WebServlet(value = "/productRemove.do")
+    @WebServlet(value = "/productRemove.")
 public class ProductRemoveController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        Product product = new Product();
+
         
         ProductService productServer = new ProductService();
-
-        productServer.delectProduct(product);
+        String productId = req.getParameter("product_id");
+        productServer.delectProduct(Integer.parseInt(productId));
 
     }
 }

@@ -35,16 +35,16 @@ public class OrderInsertController extends HttpServlet {
             return;
         }
 
-        List<Order> orders = new ArrayList<>();
+//        List<Order> orders = new ArrayList<>();
+//
+//        for (String productId : products.split(", ")) {
+//            orders.add(Order.builder()
+//                    .user(userService.findUserById(Integer.parseInt(userId)))
+//                    .quantity(1)
+//                    .product(productService.find(Integer.parseInt(productId)))
+//                    .build());
+//        }
 
-        for (String productId : products.split(", ")) {
-            orders.add(Order.builder()
-                    .user(userService.findUserById(Integer.parseInt(userId)))
-                    .quantity(1)
-                    .product(productService.find(Integer.parseInt(productId)))
-                    .build());
-        }
-
-        orderService.saveAll(orders);
+//        orderService.saveAll(orders);
     }
 }

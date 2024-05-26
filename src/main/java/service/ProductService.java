@@ -16,19 +16,30 @@ public class ProductService {
         productRepository.saveAll(product);
     }
 
-    public void findProductListAll() {
-        productRepository.findProductListAll();
+
+    public List<Product> findUserProductListAll(String userId) {
+        return productRepository.findProductListAll(userId);
+
+    }
+    public List<Product> findAllBySellerId(String sellerId) {
+        return productRepository.findAllBySellerId(sellerId);
+
     }
 
     public void insertProduct(Product product) {
         productRepository.insertProduct(product);
     }
 
-    public void updateProduct(Product product) {
-        productRepository.updateProduct(product);
+    public Product updateProduct(Product product) {
+        return productRepository.updateProduct(product);
+
     }
 
-    public void delectProduct(Product product) {
-        productRepository.delectProduct(product.getId());
+    public void delectProduct(Integer product) {
+        productRepository.delectProduct(product);
+
     }
+
+
+
 }
