@@ -1,4 +1,4 @@
-package controller;
+package controller.account;
 
 import entity.Cart;
 import java.io.IOException;
@@ -41,6 +41,7 @@ public class LoginController extends HttpServlet {
             if (seller != null) {
                 HttpSession session = req.getSession();
                 session.setAttribute("seller", seller.getRegistrationNumber());
+                session.setAttribute("storeName", seller.getStoreName());
 
                 resp.sendRedirect("/views/seller.jsp");
             } else {
@@ -58,7 +59,9 @@ public class LoginController extends HttpServlet {
             if (user != null) {
                 HttpSession session = req.getSession();
                 session.setAttribute("user", user.getUserId());
-                resp.sendRedirect("/views/product.jsp");
+                session.setAttribute("username", user.getUsername());
+
+                resp.sendRedirect("/views/virtualestimate.jsp");
             } else {
                 req.setAttribute("error", "해당하는 계정을 찾을 수 없음");
                 req.getRequestDispatcher("/views/errors/error.jsp").forward(req, resp);

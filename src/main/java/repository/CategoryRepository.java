@@ -40,17 +40,19 @@ public class CategoryRepository {
 
 	}
 	
-	public void deleteCategory(Integer id) {
+	public Category deleteProduct(Integer id) {
 		String sql = "DELETE FROM Category c WHERE c.id= :id";
 		Category categoryDelete = em.createQuery(sql, Category.class)
 				.setParameter("id", id)
 				.getSingleResult();
 		tx.commit();
 
+		return categoryDelete;
 	}
 
 	public void off() {
 		em.close();
 	}
+
 
 }

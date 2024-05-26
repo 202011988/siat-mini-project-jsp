@@ -20,8 +20,7 @@ public class CategoryRemoveController extends HttpServlet {
         Category category = new Category();
         
         CategoryService categoryService = new CategoryService();
-
-        categoryService.delectCategory(category);
+        categoryService.deleteProduct(category);
 
     }
 }

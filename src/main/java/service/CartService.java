@@ -13,7 +13,7 @@ public class CartService {
         cartRepository = new CartRepository();
     }
 
-    public List<Cart> getCartListByUserId(int userId) {
+    public List<Cart> getCartListByUserId(String userId) {
         List<Cart> list = cartRepository.findCartListByUserId(userId);
         System.out.println(list);
         return list;
@@ -27,12 +27,20 @@ public class CartService {
         cartRepository.saveAll(carts);
     }
 
-    public Integer remove(Integer cartId) {
-        return cartRepository.remove(cartId);
+    public void remove(Integer cartId) {
+        cartRepository.removeAll(List.of(cartId));
+    }
+
+    public void removeAll(List<Integer> cartIds) {
+        cartRepository.removeAll(cartIds);
     }
 
     public Integer updateQuantity(int cardId, int quantity) {
         return cartRepository.updateQuantity(cardId, quantity);
+    }
+
+    public Cart find(Integer id) {
+        return cartRepository.findById(id);
     }
 }
 

@@ -26,20 +26,16 @@ public class ProductService {
 
     }
 
-    public void insertProduct(Product product) {
-        productRepository.insertProduct(product);
+    public Boolean insertProduct(Product product) {
+       return productRepository.insertProduct(product);
     }
 
-    public Product updateProduct(Product product) {
+    public Boolean updateProduct(Product product) {
         return productRepository.updateProduct(product);
 
     }
 
-    public void delectProduct(Integer product) {
-        productRepository.delectProduct(product);
-
+    public Boolean deleteProduct(int productId) {
+       return productRepository.delectProduct(productId);
     }
-
-
-
 }

@@ -24,7 +24,7 @@
 			<property name="hibernate.format_sql" value="true" />
 			<property name="hibernate.use_sql_comments" value="true"/>
 			<property name="hibernate.hbm2ddl.auto" value="none" />
-			<!--
+			<!-- 
 				create		: DROP + CREATE
 				create-drop	: CREATE + 종료시 DROP
 				update		: DDL 변경시 반영

@@ -1,7 +1,6 @@
 package controller.product;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,13 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entity.Category;
 import entity.Product;
 import entity.Seller;
-import org.jetbrains.annotations.NotNull;
 import service.ProductService;
-import service.UserService;
 
-@WebServlet(value = "/productUpdate")
+@WebServlet(value = "/productUpdate.do")
 public class ProductUpdateController extends HttpServlet {
 
     @Override
@@ -44,10 +42,15 @@ public class ProductUpdateController extends HttpServlet {
     				.description(productDescription)
     				.stock(productStockInt)
     				.name(productName)
+					.seller(Seller.builder().build())
+					.category(Category.builder().build())
     				.build();
 
 
-    		productService.updateProduct(product);
+    		Boolean result = productService.updateProduct(product);
+			if(result != false){
+				resp.sendRedirect("/views/productSeller.jsp");
+			}
 		} catch (Exception e) {
 			System.out.println(e);
 

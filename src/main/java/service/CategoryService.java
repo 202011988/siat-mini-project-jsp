@@ -12,15 +12,13 @@ public class CategoryService {
     public CategoryService() {
         categoryRepository = new CategoryRepository();
     }
-//    public void insertCategory(Category category) {
-//        categoryRepository.insertCategory(category);
-//    }
+
     public Category findCategory(String categoryName) {
         return categoryRepository.findCategory(categoryName);
     }
 
-    public void delectCategory(Category category) {
-        categoryRepository.deleteCategory(category.getId());
+    public void deleteProduct(Category category) {
+        categoryRepository.deleteProduct(category.getId());
 
     }
 

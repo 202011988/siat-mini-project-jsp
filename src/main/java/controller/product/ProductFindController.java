@@ -1,6 +1,5 @@
 package controller.product;
 
-import entity.Order;
 import entity.Product;
 import entity.User;
 import service.ProductService;
@@ -12,10 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(value = "/productFind")
+@WebServlet(value = "/productFind.do")
 public class ProductFindController extends HttpServlet {
 
     @Override
@@ -29,11 +27,10 @@ public class ProductFindController extends HttpServlet {
     	ProductService productService = new ProductService();
 		String userId = req.getParameter("user");
 
-		System.out.println(userId);
 		if(userId != null && !userId.isEmpty()){
 			List<Product> productUserFinadAll = productService.findUserProductListAll();
 			req.setAttribute("productUserFinadALl", productUserFinadAll);
-
+			resp.sendRedirect("/views/productUser.jsp");
 		}
 
 
@@ -41,6 +38,7 @@ public class ProductFindController extends HttpServlet {
 	 	if(sellerId != null && !sellerId.isEmpty()){
 		List<Product> products = productService.findAllBySellerId(sellerId);
 		req.setAttribute("products", products);
+			resp.sendRedirect("/views/productSeller.jsp");
 		}
     }
 }

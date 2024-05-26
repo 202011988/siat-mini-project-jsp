@@ -41,7 +41,7 @@ public class UserRepository {
     }
 
 
-    public User findUserById(int userId) {
+    public User findUserById(String userId) {
         User user = null;
         user = em.find(User.class, userId);
 

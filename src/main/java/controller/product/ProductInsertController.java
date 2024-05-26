@@ -1,7 +1,7 @@
 package controller.product;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,10 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entity.Product;
-import entity.Seller;
 import service.CategoryService;
 import service.ProductService;
-import service.UserService;
 
 @WebServlet(value = "/productInsert.do")
 public class ProductInsertController extends HttpServlet {
@@ -24,6 +22,8 @@ public class ProductInsertController extends HttpServlet {
 
     	ProductService productService = new ProductService();
 		CategoryService categoryService = new CategoryService();
+		String sellerId = req.getParameter("registration_number");
+		if(sellerId != null && !sellerId.isEmpty()){
 
     	String productId = req.getParameter("id");
     	String productPrice = req.getParameter("productPrice");
@@ -48,11 +48,16 @@ public class ProductInsertController extends HttpServlet {
     				.stock(productStockInt)
     				.name(productName)
     				.build();
-    		
 
-    		productService.insertProduct(product);
+    		Boolean result = productService.insertProduct(product);
+			if(result != false){
+				resp.sendRedirect("/views/productSeller.jsp");
+			}
+
 		} catch (Exception e) {
 			System.out.println(e);
+		}
+
 		}
     }
 }

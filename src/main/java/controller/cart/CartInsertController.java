@@ -1,7 +1,5 @@
 package controller.cart;
 
-import entity.Cart;
-import entity.Product;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -44,20 +44,7 @@ public class ProductRepository {
         tx.commit();
     }
 
-//    public Product insertProduct(Product product) {
-//        String sql = "INSERT INTO PRoduct VALUES (id= :i, category_id=: c,)"
-//        Product productInsert = (Product) em.createQuery(sql, Product.class)
-//                .setParameter("i", product.getId())
-//                .setParameter("s", product.getSeller().getRegistrationNumber())
-//                .setParameter("c", product.getCategory().getId())
-//                .setParameter("p", product.getPrice())
-//                .setParameter("d", product.getDescription())
-//                .setParameter("st", product.getStock())
-//                .setParameter("n", product.getName()).getResultList();
-//        tx.commit();
-//        return productInsert;
-//    }
-public Product insertProduct(Product product) {
+public boolean insertProduct(Product product) {
     String sql = "INSERT INTO Product (id) VALUES (:i, :s, :c, :p, :d, :st, :n)";
     Product productInsert = (Product) em.createQuery(sql, Product.class)
                 .setParameter("i", product.getId())
@@ -68,10 +55,10 @@ public Product insertProduct(Product product) {
                 .setParameter("st", product.getStock())
                 .setParameter("n", product.getName()).getResultList();
         tx.commit();
-        return productInsert;
+        return productInsert != null;
 }
 
-    public Product updateProduct(Product product) {
+    public Boolean updateProduct(Product product) {
         String sql = "UPDATE Product p SET p.id= :i, p.category = :c"
                 + ",p.price= :p, p.description= :d, p.stock= :st, p.name= :n where p.id= :id" ;
         Product productUpdate = (Product) em.createQuery(sql, Product.class)
@@ -83,17 +70,17 @@ public Product insertProduct(Product product) {
                 .setParameter("st", product.getStock())
                 .setParameter("n", product.getName()).getResultList();
         tx.commit();
-        return productUpdate;
+        return productUpdate != null;
 
     }
 
-    public Integer delectProduct(Integer id) {
+    public boolean delectProduct(Integer id) {
         String sql = "DELETE FROM Product p WHERE p.id = :id";
         Integer result = em.createQuery(sql, Product.class)
                 .setParameter("id", id)
                 .executeUpdate();
         tx.commit();
-        return result;
+        return result > 0;
     }
 
     public void off() {

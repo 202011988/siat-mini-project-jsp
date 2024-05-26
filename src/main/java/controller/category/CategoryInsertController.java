@@ -1,7 +1,6 @@
 package controller.category;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,11 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entity.Category;
-import entity.Product;
-import entity.Seller;
 import service.CategoryService;
-import service.ProductService;
-import service.UserService;
 
 @WebServlet(value = "/categoryInsert.do")
 public class CategoryInsertController extends HttpServlet {
@@ -34,13 +29,14 @@ public class CategoryInsertController extends HttpServlet {
 			category = Category.builder()
 					.id(categoryIdInt)
 					.name(categoryName)
-					.build()
-			;
+					.build();
+
 			categoryService.insertCategoryService(category);
 
-			categoryService.off();
+
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		categoryService.off();
 	}
 }

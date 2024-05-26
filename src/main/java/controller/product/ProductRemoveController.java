@@ -1,7 +1,6 @@
 package controller.product;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,13 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import entity.Product;
-import entity.Seller;
-import service.CartService;
 import service.ProductService;
-import service.UserService;
 
-    @WebServlet(value = "/productRemove.")
+@WebServlet(value = "/productRemove.do")
 public class ProductRemoveController extends HttpServlet {
 
     @Override
@@ -25,7 +20,11 @@ public class ProductRemoveController extends HttpServlet {
         
         ProductService productServer = new ProductService();
         String productId = req.getParameter("product_id");
-        productServer.delectProduct(Integer.parseInt(productId));
+        Boolean result = productServer.deleteProduct(Integer.parseInt(productId));
+
+        if(result != false){
+            resp.sendRedirect("/views/productSeller.jsp");
+        }
 
     }
 }
