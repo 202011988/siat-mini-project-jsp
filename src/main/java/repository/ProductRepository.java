@@ -21,11 +21,10 @@ public class ProductRepository {
         String sql = "SELECT d FROM Product d";
         List<Product> productList = em.createQuery(sql, Product.class)
                 .getResultList();
-        System.out.println(productList);
         return productList;
     }
 
-    public List<Product> findAllBySellerId(String sellerId) {
+    public List<Product> findAllBySellerId(Integer sellerId) {
         String sql = "SELECT d FROM Product d  WHERE d.seller.registrationNumber= :registrationNumber";
         List<Product> productList =
                 em.createQuery(sql, Product.class)
@@ -59,6 +58,7 @@ public boolean insertProduct(Product product) {
 }
 
     public Boolean updateProduct(Product product) {
+        System.out.println("repo");
         String sql = "UPDATE Product p SET p.id= :i, p.category = :c"
                 + ",p.price= :p, p.description= :d, p.stock= :st, p.name= :n where p.id= :id" ;
         Product productUpdate = (Product) em.createQuery(sql, Product.class)

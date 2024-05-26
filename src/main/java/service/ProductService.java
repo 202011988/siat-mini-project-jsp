@@ -18,11 +18,12 @@ public class ProductService {
 
 
     public List<Product> findUserProductListAll() {
+
         return productRepository.findProductListAll();
 
     }
     public List<Product> findAllBySellerId(String sellerId) {
-        return productRepository.findAllBySellerId(sellerId);
+        return productRepository.findAllBySellerId(Integer.parseInt(sellerId));
 
     }
 
@@ -31,6 +32,7 @@ public class ProductService {
     }
 
     public Boolean updateProduct(Product product) {
+        System.out.println("update");
         return productRepository.updateProduct(product);
 
     }

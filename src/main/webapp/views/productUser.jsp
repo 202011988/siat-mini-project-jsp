@@ -1,3 +1,5 @@
+<%@ page import="entity.Product" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -48,58 +50,27 @@
     }
 </style>
 <body>
-<h1 align="center">판매자 관리 페이지</h1>
-<div class="buttons-container">
-    <button onclick="/productUpdate.do">수정</button>
-    <button onclick="/productRemove.do">삭제</button>
-</div>
-<div class="contatier">
+<h1 align="center">Compuer Shopping</h1>
+    <div class="contatier">
     <div class="table-container">
         <table>
             <thead>
             <tr>
-                <th>${productName}}</th>
+                <th>상품</th>
                 <th>상품 설명</th>
                 <th>가격</th>
             </tr>
             </thead>
             <tbody>
+            <c:forEach items="${requestScope.productUser}" var="product">
             <tr>
-                <td><a href="#">상품</a></td>
-                <td>설명</td>
-                <td>100</td>
+                <td><a href="#">${product.name}</a></td>
+                <td>${product.description}</td>
+                <td>${product.price}</td>
             </tr>
-            <tr>
-                <td><a href="#">상품</a></td>
-                <td>설명</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td><a href="#">상품</a></td>
-                <td>설명</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td><a href="#">상품</a></td>
-                <td>설명</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td><a href="#">상품</a></td>
-                <td>설명</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td><a href="#">상품</a></td>
-                <td>설명</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td><a href="#">상품</a></td>
-                <td>설명</td>
-                <td>10</td>
-            </tr>
+            </c:forEach>
             </tbody>
+
         </table>
     </div>
 </div>

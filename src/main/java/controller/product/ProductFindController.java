@@ -1,7 +1,6 @@
 package controller.product;
 
 import entity.Product;
-import entity.User;
 import service.ProductService;
 
 import javax.servlet.ServletException;
@@ -17,28 +16,34 @@ import java.util.List;
 public class ProductFindController extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
 
-
-    	ProductService productService = new ProductService();
-
-		String userId = req.getParameter("userId");
-
-		if(userId != null && !userId.isEmpty()){
-			List<Product> productUserFinadAll = productService.findUserProductListAll();
-			req.setAttribute("productUserFinadALl", productUserFinadAll);
-			resp.sendRedirect("/views/productUser.jsp");
-			
-		}
+        ProductService productService = new ProductService();
+        HttpSession session = req.getSession();
+        String userId = (String) session.getAttribute("user");
 
 
-		String sellerId = req.getParameter("registration_number");
-	 	if(sellerId != null && !sellerId.isEmpty()){
-		List<Product> products = productService.findAllBySellerId(sellerId);
-		req.setAttribute("products", products);
-			resp.sendRedirect("/views/productSeller.jsp");
-		}
+        if (userId != null && !userId.isEmpty()) {
+            List<Product> productUserFinadAll = productService.findUserProductListAll();
+
+            req.setAttribute("productUser", productUserFinadAll);
+
+            req.getRequestDispatcher("/views/productUser.jsp").forward(req, resp);
+
+        }
+
+//		String sellerId = (String) session.getAttribute("seller");
+		String sellerId = "123456789";
+		System.out.println(sellerId);
+        if (sellerId != null) {
+            List<Product> products = productService.findAllBySellerId(sellerId);
+            for (Product product : products) {
+                System.out.println(product.getPrice());
+            }
+            req.setAttribute("productSeller", products);
+            resp.sendRedirect("/views/seller.jsp");
+        }
     }
 }

@@ -23,7 +23,7 @@ public class ProductRemoveController extends HttpServlet {
         Boolean result = productServer.deleteProduct(Integer.parseInt(productId));
 
         if(result != false){
-            resp.sendRedirect("/views/productSeller.jsp");
+            resp.sendRedirect("/views/seller.jsp");
         }
 
     }
