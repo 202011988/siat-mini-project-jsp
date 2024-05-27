@@ -29,7 +29,7 @@ public class Product {
 	@JoinColumn(name = "registration_number")
 	private Seller seller;	// 판매자 번호
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id")
 	private Category category;	// 카테고리 번호
 	

@@ -18,7 +18,7 @@
     <form action="/login.do" method="POST">
         <table align="center" cellpadding="5" cellspacing="1" width="600" border="0">
             <tr>
-                <td width="1320" height="20" colspan="2" bgcolor="#336699">
+                <td width="1320" height="20" colspan="2" bgcolor="#4CAF50">
                     <p align="center">
                         <font color="white" size="3">
                             <b>로그인</b>
@@ -59,14 +59,13 @@
                 </td>
                 <td width="450" height="20" align="center">
                     <b>
-		        		<span style="font-size:12pt;">
-							<input type="submit" value="로그인">
+		        		<span style="font-size:12pt;" class="buttons-container">
+                            <button type="submit"> 로그인 </button>
 							&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="reset" value="다시작성">
+                            <button type="reset"> 다시작성 </button>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="button" value="회원가입" onclick="location.href='/views/register/select.jsp'">
+                            <button onclick="location.href='/views/register/select.jsp'"> 회원가입 </button>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-
 						</span>
                     </b>
                 </td>
@@ -75,7 +74,7 @@
     </form>
     <hr>
     <div align=center>
-        <span style="font-size:12pt;"><input type="button" value="메인으로" onclick="location.href='/'"></span>
+        <span class="buttons-container" style="font-size:12pt;"><input type="button" value="메인으로" onclick="location.href='/'"></span>
     </div>
 </div>
 
