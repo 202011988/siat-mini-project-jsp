@@ -35,6 +35,11 @@ public class OrderInsertController extends HttpServlet {
             for (String cartId : carts) {
                 System.out.println(cartId);
                 Cart cart = cartService.find(Integer.parseInt(cartId));
+                if (cart == null) {
+                    String error = "서버 에러가 발생했습니다.: cart not found";
+                    req.setAttribute("error", error);
+                    req.getRequestDispatcher("/views/errors/error.jsp").forward(req, resp);
+                }
                 Order newOrder = Order.builder()
                         .user(cart.getUser())
                         .product(cart.getProduct())
@@ -45,7 +50,9 @@ public class OrderInsertController extends HttpServlet {
                 cartIds.add(Integer.parseInt(cartId));
             }
         } else {
-            // TODO ERROR : MISSING Parameter
+            String error = "정상적인 요청이 아닙니다.";
+            req.setAttribute("error", error);
+            req.getRequestDispatcher("/views/errors/error.jsp").forward(req, resp);
             return;
         }
 

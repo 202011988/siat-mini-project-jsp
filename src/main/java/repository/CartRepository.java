@@ -3,6 +3,7 @@ package repository;
 import entity.Cart;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Transient;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
@@ -69,14 +70,14 @@ public class CartRepository {
         return result;
     }
 
-    public Cart findById(Integer id) {
+    public Cart findById(Integer id) throws NoResultException {
         String sql = "SELECT c FROM Cart c WHERE c.id = :id";
         return em.createQuery(sql, Cart.class)
                 .setParameter("id", id)
                 .getSingleResult();
     }
 
-    public Cart findByUserIdAndProductId(String userId, Integer productId) {
+    public Cart findByUserIdAndProductId(String userId, Integer productId) throws NoResultException {
         String sql = "SELECT c FROM Cart c WHERE c.user.id = :userId AND c.product.id = :productId";
         return em.createQuery(sql, Cart.class)
                 .setParameter("userId", userId)
