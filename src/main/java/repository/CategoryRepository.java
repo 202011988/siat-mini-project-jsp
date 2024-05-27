@@ -55,4 +55,9 @@ public class CategoryRepository {
 	}
 
 
+	public List<Category> findAll() {
+		String sql = "SELECT c FROM Category c";
+		return em.createQuery(sql, Category.class)
+				.getResultList();
+	}
 }

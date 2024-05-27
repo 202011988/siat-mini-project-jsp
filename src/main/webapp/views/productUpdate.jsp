@@ -35,19 +35,6 @@
 	<!-- action, method -->
 	<form action="/productUpdate.do" method="GET" id="productUpdateForm" onsubmit="checkData()">
 		<table align="center" cellpadding="5" cellspacing="1" width="600" border="1">
-			<tr>
-				<td width="230" height="20">
-					<p align="center"><b><span style="font-size:12pt;">제품번호</span></b></p>
-				</td>
-				<td width="450" height="20" align="center">
-					<b>
-		        		<span style="font-size:12pt;">
-		        			<input type="number" name="ㅑd" size="30">
-		        		</span>
-					</b>
-				</td>
-			</tr>
-
 
 			<tr>
 				<td width="230" height="20">
@@ -57,6 +44,20 @@
 					<b>
 		        		<span style="font-size:12pt;">
 		        			<input type="number" name="productPrice" size="30">
+		        		</span>
+					</b>
+				</td>
+			</tr>
+
+			<tr>
+				<td width="230" height="20">
+					<p align="center"><b><span style="font-size:12pt;">카테고리</span></b></p>
+				</td>
+				<td width="450" height="20" align="center">
+					<b>
+		        		<span style="font-size:12pt;">
+		        			<input type="radio" name="prodcutCategory" value="1">CPU
+							<input type="radio" name="prodcutCategory" value="2">Board
 		        		</span>
 					</b>
 				</td>
@@ -98,6 +99,21 @@
 		        		<span style="font-size:12pt;">
 		        			<input type="text" name="name" size="30">
 		        		</span>
+					</b>
+				</td>
+			</tr>
+
+			<tr>
+				<td width="230" height="20">
+					<p><b><span style="font-size:12pt;">&nbsp;</span></b></p>
+				</td>
+				<td width="450" height="20" align="center">
+					<b>
+		        		<span style="font-size:12pt;">
+							<input type="submit" value="제품등록">
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="reset" value="다시작성">
+						</span>
 					</b>
 				</td>
 			</tr>

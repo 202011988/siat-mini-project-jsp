@@ -33,4 +33,8 @@ public class CategoryService {
     public void off() {
         categoryRepository.off();
     }
+
+    public List<Category> findAll() {
+        return categoryRepository.findAll();
+    }
 }
