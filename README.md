@@ -4,7 +4,7 @@
 <br />
 <div align="center">
 
-<h3 align="center">PC Shop</h3>
+<h2 align="center">PC Shop</h2>
 
   <p align="center">
     컴퓨터 부품 구매 페이지
