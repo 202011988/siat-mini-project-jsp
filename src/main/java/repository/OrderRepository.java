@@ -8,6 +8,7 @@ import java.util.List;
 import util.JPAUtil;
 
 public class OrderRepository {
+
     EntityManager em;
     EntityTransaction tx;
 
@@ -34,5 +35,13 @@ public class OrderRepository {
         TypedQuery<Order> query = em.createQuery(sql, Order.class).setParameter("userId", userId);
 
         return query.getResultList();
+    }
+
+    public Order find(int orderId) {
+        String sql = "SELECT o FROM Order o WHERE o.id = :id";
+        TypedQuery<Order> query = em.createQuery(sql, Order.class)
+                .setParameter("id", orderId);
+
+        return query.getSingleResult();
     }
 }

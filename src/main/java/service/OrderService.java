@@ -23,4 +23,8 @@ public class OrderService {
     public List<Order> findAllByUserId(String userId) {
         return orderRepository.findAllByUserId(userId);
     }
+
+    public Order findById(int orderId) {
+        return orderRepository.find(orderId);
+    }
 }

@@ -2,6 +2,7 @@ package controller;
 
 import entity.Cart;
 import entity.Category;
+import entity.Order;
 import entity.Product;
 import entity.Seller;
 import entity.User;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.CartService;
 import service.CategoryService;
+import service.OrderService;
 import service.ProductService;
 import service.SellerService;
 import service.UserService;
@@ -29,6 +31,7 @@ public class StartController extends HttpServlet {
         SellerService sellerService = new SellerService();
         ProductService productService = new ProductService();
         CartService cartService = new CartService();
+        OrderService orderService = new OrderService();
 
         // Given
         User user = new User("user1", "password", "seoul", "name");
@@ -73,5 +76,12 @@ public class StartController extends HttpServlet {
                 .quantity(2)
                 .build();
         cartService.saveAll(List.of(cart1, cart2));
+
+        Order order1 = Order.builder()
+                .product(product1)
+                .quantity(5)
+                .user(user)
+                .build();
+        orderService.save(order1);
     }
 }

@@ -43,7 +43,7 @@
                 <p align="center">
 				            <span style="font-size:12pt;">
 				            	<!-- 주문번호 -->
-				            	<b>${order.id}</b>
+                                <b><a href="orderDetail.do?orderId=${order.id}">${order.id}</a></b>
 				            </span>
                 </p>
             </td>            <td bgcolor="">
@@ -53,7 +53,7 @@
 									상품명 클릭 시, 해당 상품 상세정보 출력
 								 -->
 								<b>
-									<a href="/#=">${order.product.name}</a>
+									<a href="productDetails.do?productId=${order.product.id}">${order.product.name}</a>
 								</b>
 							</span>
             </p>
