@@ -24,6 +24,8 @@
   - Product구현
 
 <hr>
+<a href = "https://app.diagrams.net/#G1gceDBLAZcKafczckJGoVij72BoI30HOe#%7B%22pageId%22%3A%22R2lEEEUBdFMjLlhIrx00%22%7D">ERD</a>
+<hr>
 [Order] <br/>
 SELECT o FROM Order o where o.user.userId = :userId <br/>
 SELECT o FROM Order o WHERE o.id = :id <br/>
