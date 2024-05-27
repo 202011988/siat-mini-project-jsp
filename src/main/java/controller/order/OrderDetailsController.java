@@ -28,6 +28,13 @@ public class OrderDetailsController extends HttpServlet {
 
         Order order = orderService.findById(Integer.parseInt(orderId));
 
+        if (order == null) {
+            String error = "서버 에러가 발생했습니다.: order not found";
+            req.setAttribute("error", error);
+            req.getRequestDispatcher("/views/errors/error.jsp").forward(req, resp);
+            return;
+        }
+
         req.setAttribute("order", order);
         req.setAttribute("total", order.getProduct().getPrice() * order.getQuantity());
 

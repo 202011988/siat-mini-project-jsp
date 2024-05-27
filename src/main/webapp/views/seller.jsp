@@ -6,7 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <title>판매자 관리</title>
-    <link href="/static/css/layout.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/static/css/layout.css'/>" type="text/css">
+<%--    <link src="/static/css/layout.css" rel="stylesheet" type="text/css">--%>
 </head>
 <%@ include file="/views/layout/header.jsp" %>
 <style>

@@ -3,6 +3,7 @@ package repository;
 import entity.Order;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
 import util.JPAUtil;
@@ -37,7 +38,7 @@ public class OrderRepository {
         return query.getResultList();
     }
 
-    public Order find(int orderId) {
+    public Order find(int orderId) throws NoResultException {
         String sql = "SELECT o FROM Order o WHERE o.id = :id";
         TypedQuery<Order> query = em.createQuery(sql, Order.class)
                 .setParameter("id", orderId);

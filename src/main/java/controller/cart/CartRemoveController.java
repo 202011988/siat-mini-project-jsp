@@ -28,9 +28,6 @@ public class CartRemoveController extends HttpServlet {
 
         CartService cartService = new CartService();
 
-        // ??? ????? ??? ????.
-        // ????? ?? ?? ?? ?? ???? ? ??.
-
         BufferedReader reader = new BufferedReader(new InputStreamReader(req.getInputStream(),
                 StandardCharsets.UTF_8));
         String line = reader.readLine();

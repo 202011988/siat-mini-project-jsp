@@ -1,6 +1,7 @@
 package service;
 
 import entity.Order;
+import jakarta.persistence.NoResultException;
 import java.util.List;
 import repository.OrderRepository;
 
@@ -25,6 +26,11 @@ public class OrderService {
     }
 
     public Order findById(int orderId) {
-        return orderRepository.find(orderId);
+        try {
+            return orderRepository.find(orderId);
+
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 }

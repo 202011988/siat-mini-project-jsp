@@ -16,7 +16,7 @@
             <property name="jakarta.persistence.jdbc.password" value="shopping"/>
 
             <property name="hibernate.hikari.poolName" value="pool"/>
-            <property name="hibernate.hikari.maximumPoolSize" value="10"/>
+            <property name="hibernate.hikari.maximumPoolSize" value="100"/>
             <property name="hibernate.hikari.minimumIdle" value="10"/>
             <property name="hibernate.hikari.connectionTimeout" value="1000"/>
             
