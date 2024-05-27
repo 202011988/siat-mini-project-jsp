@@ -134,8 +134,8 @@
                 <div class="product-list">
                     <c:forEach items="${requestScope.product}" var="product">
                         <c:if test="${product.category.id eq category.id}">
-                            <div class="product-item" id=${product.id}> <%-- 이 코드에 id를 추가한다 (product's id) --%>
-                                <h3>${product.name}</h3>
+                            <div class="product-item" id="${product.id}"> <%-- 이 코드에 id를 추가한다 (product's id) --%>
+                                <h3><a href="/productDetailsUser.do?productId=${product.id}"> ${product.name} </a></h3>
                                 <p>${product.description}</p>
                                 <p class="price">${product.price}원</p>
                                 <button class="buy-btn">담기</button>
