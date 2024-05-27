@@ -135,7 +135,6 @@
                     <c:forEach items="${requestScope.product}" var="product">
                         <c:if test="${product.category.id eq category.id}">
                             <div class="product-item" id=${product.id}> <%-- 이 코드에 id를 추가한다 (product's id) --%>
-                                    <%--                        <img src="product1.jpg" alt="인텔 코어i5-14세대 14600K (렙터레이크 리프레시)">--%>
                                 <h3>${product.name}</h3>
                                 <p>${product.description}</p>
                                 <p class="price">${product.price}원</p>

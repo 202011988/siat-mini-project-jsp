@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>상품 정보</title>
     <link href="/static/css/layout.css" rel="stylesheet" type="text/css">
 </head>
@@ -38,12 +38,12 @@
 
             <tr>
                 <td width="230" height="20">
-                    <p align="center"><b><span style="font-size:12pt;">가격</span></b></p>
+                    <p align="center"><b><span style="font-size:12pt;">제품 이름</span></b></p>
                 </td>
                 <td width="450" height="20" align="center">
                     <b>
 		        		<span style="font-size:12pt;">
-		        			<input type="number" name="productPrice" size="30">
+		        			<input type="text" name="name" size="30">
 		        		</span>
                     </b>
                 </td>
@@ -79,7 +79,18 @@
                     </b>
                 </td>
             </tr>
-
+            <tr>
+                <td width="230" height="20">
+                    <p align="center"><b><span style="font-size:12pt;">가격</span></b></p>
+                </td>
+                <td width="450" height="20" align="center">
+                    <b>
+		        		<span style="font-size:12pt;">
+		        			<input type="number" name="productPrice" size="30">
+		        		</span>
+                    </b>
+                </td>
+            </tr>
             <tr>
                 <td width="230" height="20">
                     <p align="center"><b><span style="font-size:12pt;">재고현황</span></b></p>
@@ -93,18 +104,7 @@
                 </td>
             </tr>
 
-            <tr>
-                <td width="230" height="20">
-                    <p align="center"><b><span style="font-size:12pt;">제품 이름</span></b></p>
-                </td>
-                <td width="450" height="20" align="center">
-                    <b>
-		        		<span style="font-size:12pt;">
-		        			<input type="text" name="name" size="30">
-		        		</span>
-                    </b>
-                </td>
-            </tr>
+
 
             <tr>
                 <td width="230" height="20">

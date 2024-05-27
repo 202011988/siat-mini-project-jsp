@@ -9,6 +9,7 @@
 --%>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>주문 목록</title>
     <link href="/static/css/layout.css" rel="stylesheet" type="text/css"/>
 </head>

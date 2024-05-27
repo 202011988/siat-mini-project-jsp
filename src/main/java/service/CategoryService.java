@@ -13,34 +13,32 @@ public class CategoryService {
         categoryRepository = new CategoryRepository();
     }
 
-    public Category findCategory(String categoryName) {
-        return categoryRepository.findCategory(categoryName);
+    public Category findCategoryByName(String categoryName) {
+        return categoryRepository.findCategoryByName(categoryName);
     }
-
-    public void deleteProduct(Category category) {
-        categoryRepository.deleteProduct(category.getId());
-
+    public List<Category> findAll() {
+        return categoryRepository.findAll();
     }
 
     public Category findCategoryById(int categoryId) {
         return categoryRepository.findCategoryById(categoryId);
     }
 
-
+    public void deleteProduct(Category category) {
+        categoryRepository.deleteProduct(category.getId());
+    }
 
     public void saveAll(List<Category> categoryCpu) {
         categoryRepository.saveAll(categoryCpu);
     }
 
-    public List<Category> insertCategoryService(Category category) {
-        return categoryRepository.insertCategory(category.getId());
-    }
+
 
     public void off() {
         categoryRepository.off();
     }
 
-    public List<Category> findAll() {
-        return categoryRepository.findAll();
+
+    public void insertCategoryService(Category category) {
     }
 }

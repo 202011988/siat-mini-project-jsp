@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>상품 정보</title>
     <link href="/static/css/layout.css" rel="stylesheet" type="text/css">
 </head>

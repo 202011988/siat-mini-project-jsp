@@ -22,8 +22,19 @@ public class CategoryRepository {
 		}
 		tx.commit();
 	}
+	public List<Category> findAll() {
+		String sql = "SELECT c FROM Category c";
+		return em.createQuery(sql, Category.class)
+				.getResultList();
+	}
 
-	public Category findCategory(String categoryName) {
+	public Category findCategoryById(int categoryId) {
+		Category category = null;
+		category = em.find(Category.class, categoryId);
+		return category;
+	}
+
+	public Category findCategoryByName(String categoryName) {
 		String sql = "SELECT c FROM Category c WHERE c.name= :name";
         return em.createQuery(sql, Category.class)
 				.setParameter("name", categoryName)
@@ -55,15 +66,7 @@ public class CategoryRepository {
 	}
 
 
-	public List<Category> findAll() {
-		String sql = "SELECT c FROM Category c";
-		return em.createQuery(sql, Category.class)
-				.getResultList();
-	}
 
-    public Category findCategoryById(int categoryId) {
-		Category category = null;
-		category = em.find(Category.class, categoryId);
-		return category;
-    }
+
+
 }
