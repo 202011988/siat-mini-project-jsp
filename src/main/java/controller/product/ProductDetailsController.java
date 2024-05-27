@@ -7,6 +7,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import service.CategoryService;
 import service.ProductService;
 
 @WebServlet(value = "/productDetails.do")
@@ -31,6 +33,9 @@ public class ProductDetailsController extends HttpServlet {
         // 참고할 페이지는 order-list.jsp 입니다.
         // 해볼 수 있겠어요?
         req.setAttribute("product", product);
+
+        CategoryService categoryService = new CategoryService();
+        req.setAttribute("category", categoryService.findAll());
         req.getRequestDispatcher("views/detailProduct.jsp").forward(req, resp);
     }
 }

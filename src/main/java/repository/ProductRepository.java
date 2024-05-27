@@ -45,6 +45,8 @@ public class ProductRepository {
     }
 
     public void insertProduct(Product product) {
+
+        System.out.println(product);
         em.persist(product);
         tx.commit();
     }

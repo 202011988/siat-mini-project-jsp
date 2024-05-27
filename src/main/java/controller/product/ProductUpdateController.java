@@ -40,10 +40,12 @@ public class ProductUpdateController extends HttpServlet {
 
 		Product product;
 
-    	try {
+		try {
 
-    		int productPriceInt = Integer.parseInt(productPrice);
-    		int productStockInt = Integer.parseInt(productStock);
+			System.out.println(productCategory);
+
+			int productPriceInt = Integer.parseInt(productPrice);
+			int productStockInt = Integer.parseInt(productStock);
 			int productCategoryInt = Integer.parseInt(productCategory);
 			int productIdInt = Integer.parseInt(productId);
 
@@ -51,7 +53,7 @@ public class ProductUpdateController extends HttpServlet {
 			Seller seller = sellerService.findSellerById(sellerId);
 
 
-    		product = Product.builder()
+			product = Product.builder()
 					.id(productIdInt)
 					.price(productPriceInt)
 					.description(productDescription)
@@ -62,11 +64,11 @@ public class ProductUpdateController extends HttpServlet {
 					.build();
 
 
-    		productService.updateProduct(product);	// 입력 받은 값을 쿼리해서 수정해서
+			productService.updateProduct(product);    // 입력 받은 값을 쿼리해서 수정해서
 			resp.sendRedirect("/productFind.do"); // 목록을 가져와서 출력하는 do 컨트롤러.
 
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 
 		}
     }

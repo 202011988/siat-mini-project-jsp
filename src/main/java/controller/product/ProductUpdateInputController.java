@@ -1,6 +1,7 @@
 package controller.product;
 
 import entity.Product;
+import service.CategoryService;
 import service.ProductService;
 
 import javax.servlet.ServletException;
@@ -24,6 +25,8 @@ public class ProductUpdateInputController extends HttpServlet {
         ProductService productService = new ProductService();
         Product product = productService.find(Integer.parseInt(productId));
 
+        CategoryService categoryService = new CategoryService();
+        req.setAttribute("category", categoryService.findAll());
 
         req.setAttribute("product", product);
         req.getRequestDispatcher("views/productUpdate.jsp").forward(req, resp);

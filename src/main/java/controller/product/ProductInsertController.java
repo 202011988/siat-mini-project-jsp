@@ -23,8 +23,7 @@ public class ProductInsertController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-
-
+		resp.setContentType("text/html; charset=utf-8");
 		HttpSession session = req.getSession();
 
 		Integer sellerId = (Integer) session.getAttribute("seller");

@@ -56,11 +56,10 @@
                 <td width="450" height="20" align="center">
                     <b>
 		        		<span style="font-size:12pt;">
-<%--                            <c:forEach>--%>
-<%--                                <label><input type='radio' name='productCategory' value=%{ />사과</label>--%>
-<%--                            </c:forEach>--%>
-                            <input type="radio" name="prodcutCategory" value="1"> CPU
-							<input type="radio" name="prodcutCategory" value="2">Board
+							<c:forEach items="${requestScope.category}" var="category">
+                                <label><input type="radio" name="prodcutCategory" value="${category.id}">  ${category.name}</label>
+                                &nbsp;&nbsp;
+                            </c:forEach>
 		        		</span>
                     </b>
                 </td>
