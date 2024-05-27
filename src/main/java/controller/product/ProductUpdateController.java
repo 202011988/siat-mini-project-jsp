@@ -22,44 +22,38 @@ public class ProductUpdateController extends HttpServlet {
             throws ServletException, IOException {
 
     	ProductService productService = new ProductService();
-    	String productId = req.getParameter("id");
+
+		HttpSession session = req.getSession();
+		Integer sellerId = (Integer) session.getAttribute("seller");
+
+
     	String productPrice = req.getParameter("productPrice");
     	String productDescription = req.getParameter("description");
     	String productStock = req.getParameter("stock");
     	String productName = req.getParameter("name");
+		String productCategory = req.getParameter("prodcutCategory");
 
-    	Product product1 = new Product();
+    	Product product = new Product();
     	try {
-			System.out.println("try");
 
-    		int productIdInt = Integer.parseInt(productId);
     		int productPriceInt = Integer.parseInt(productPrice);
     		int productStockInt = Integer.parseInt(productStock);
+			int productCategoryInt = Integer.parseInt(productCategory);
 
-//    		product = Product.builder()
-//    				.id(productIdInt)
-//    				.price(productPriceInt)
-//    				.description(productDescription)
-//    				.stock(productStockInt)
-//    				.name(productName)
-//					.seller(Seller.builder().build())
-//					.category(Category.builder().build())
-//    				.build();
-			product1 = Product.builder()
-					.id(123)
-					.price(123)
-					.description("Asd")
-					.stock(1)
-					.name("coo")
-					.seller(Seller.builder().build())
-					.category(Category.builder().build())
-					.build();
-			System.out.println(product1.getDescription());
-    		Boolean result = productService.updateProduct(product1);
+    		product = Product.builder()
+    				.price(productPriceInt)
+    				.description(productDescription)
+    				.stock(productStockInt)
+    				.name(productName)
+    				.build();
 
-			if(result != false){
-				resp.sendRedirect("/views/seller.jsp");
-			}
+
+    		productService.updateProduct(product, productCategoryInt, sellerId);
+			resp.sendRedirect("/views/seller.jsp");
+
+//			if(result != false){
+//
+//			}
 		} catch (Exception e) {
 			System.out.println(e);
 

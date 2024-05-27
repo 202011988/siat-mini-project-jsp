@@ -52,8 +52,8 @@
 <body>
 <h1 align="center">판매자 관리 페이지</h1>
 <div class="buttons-container">
-    <button onclick="location.href='/productUpdate.do'">수정</button>
-    <button onclick="/productRemove.do">삭제</button>
+    <button onclick="location.href='/views/productUpdate.jsp'">수정</button>
+    <button onclick="location.href='/productRemove.do'">삭제</button>
 </div>
 
 
@@ -69,19 +69,12 @@
             </thead>
             <tbody>
 
-            <tr>
-				<td><a href="#">하이</a></td>
-                <td>하이</td>
-                <td>하이</td>
-            </tr>
 			<c:forEach items="${requestScope.productSeller}" var= "product">
-
-				<% System.out.println("${product.name}");%>
-                <tr>
-                    <td><a href="#">${product.name}</a></td>
-                    <td>${product.description}</td>
-                    <td>${product.price}</td>
-                </tr>
+            <tr>
+                <td class="productName" name = "productName"><a href="/productFind.do">${product.name}</a></td>
+                <td>${product.description}</td>
+                <td>${product.price}</td>
+            </tr
             </c:forEach>
             </tbody>
         </table>

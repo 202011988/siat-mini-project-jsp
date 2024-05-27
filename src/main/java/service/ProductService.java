@@ -22,8 +22,8 @@ public class ProductService {
         return productRepository.findProductListAll();
 
     }
-    public List<Product> findAllBySellerId(String sellerId) {
-        return productRepository.findAllBySellerId(Integer.parseInt(sellerId));
+    public List<Product> findAllBySellerId(Integer sellerId) {
+        return productRepository.findAllBySellerId(sellerId);
 
     }
 
@@ -31,9 +31,8 @@ public class ProductService {
        return productRepository.insertProduct(product);
     }
 
-    public Boolean updateProduct(Product product) {
-        System.out.println("update");
-        return productRepository.updateProduct(product);
+    public void updateProduct(Product product, Integer category, Integer sellerId) {
+        productRepository.updateProduct(product,category,sellerId);
 
     }
 

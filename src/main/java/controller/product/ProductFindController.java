@@ -34,16 +34,20 @@ public class ProductFindController extends HttpServlet {
 
         }
 
-//		String sellerId = (String) session.getAttribute("seller");
-		String sellerId = "123456789";
-		System.out.println(sellerId);
+        Integer sellerId = (Integer) session.getAttribute("seller");
+
         if (sellerId != null) {
             List<Product> products = productService.findAllBySellerId(sellerId);
-            for (Product product : products) {
-                System.out.println(product.getPrice());
-            }
             req.setAttribute("productSeller", products);
-            resp.sendRedirect("/views/seller.jsp");
+            req.getRequestDispatcher("/views/seller.jsp").forward(req,resp); // << 아니에요
         }
+
+
+//        String productName = req.get();
+//        System.out.println(productName);
+//        if (productName != null && !productName.isEmpty()) {
+//            System.out.println(productName);
+//        }
+
     }
 }

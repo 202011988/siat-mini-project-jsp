@@ -19,9 +19,12 @@ public class ProductRemoveController extends HttpServlet {
 
         
         ProductService productServer = new ProductService();
-        String productId = req.getParameter("product_id");
-        Boolean result = productServer.deleteProduct(Integer.parseInt(productId));
+//        String productId = req.getParameter("product_id");
 
+//        Boolean result = productServer.deleteProduct(Integer.parseInt(productId));
+
+        String productId = req.getParameter("product_id");
+        Boolean result = productServer.deleteProduct(11);
         if(result != false){
             resp.sendRedirect("/views/seller.jsp");
         }
