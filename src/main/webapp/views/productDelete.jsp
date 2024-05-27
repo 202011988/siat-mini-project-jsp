@@ -32,6 +32,7 @@
 <%@ include file="./layout/header.jsp" %>
 
 <div id="container">
+	<% System.out.println("삭제jsp로 들어오기 성공");%>
 	<!-- action, method -->
 	<form action="/productRemove.do" method="GET" id="productUpdateForm" onsubmit="checkData()">
 		<table align="center" cellpadding="5" cellspacing="1" width="600" border="1">

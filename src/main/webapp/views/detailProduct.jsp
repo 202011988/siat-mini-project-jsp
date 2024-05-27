@@ -68,7 +68,7 @@
             <% } %>
             </tbody>
             <button onclick="location.href='/productUpdateInput.do?productId=${requestScope.product.id}'">수정하기</button>
-            <button onclick="location.href='/productDeletInput.do?productId=${requestScope.product.id}'">삭제하기</button>
+            <button onclick="location.href='/productDeleteInput.do?productId=${requestScope.product.id}'">삭제하기</button>
         </table>
 
     </div>

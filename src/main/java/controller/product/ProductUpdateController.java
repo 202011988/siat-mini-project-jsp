@@ -33,7 +33,6 @@ public class ProductUpdateController extends HttpServlet {
 		String productName = req.getParameter("name");
 		String productCategory = req.getParameter("prodcutCategory");
 
-		System.out.println(productId +","+ sellerId);
 
 		CategoryService categoryService = new CategoryService();
 		SellerService sellerService = new SellerService();

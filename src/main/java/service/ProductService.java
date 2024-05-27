@@ -37,8 +37,8 @@ public class ProductService {
 
     }
 
-    public Boolean deleteProduct(int productId) {
-       return productRepository.delectProduct(productId);
+    public void deleteProduct(int productId) {
+       productRepository.delectProduct(productId);
     }
 
     public Product find(int id) {

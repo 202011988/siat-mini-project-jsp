@@ -20,19 +20,24 @@ public class ProductRemoveController extends HttpServlet {
         
         ProductService productServer = new ProductService();
 
+        String productId = req.getParameter("productId");
 
-        String productName = req.getParameter("productName");
-        System.out.println(productName);
-        if (productName != null && !productName.isEmpty()) {
-            System.out.println(productName);
+//        String productName = req.getParameter("productName");
+
+        if (productId != null) {
+            int productIdInt = Integer.parseInt(productId);
+
+            try {
+                productServer.deleteProduct(productIdInt);
+                resp.sendRedirect("/productFind.do"); //
+
+            }catch (Exception e) {
+                req.setAttribute("error", e.getMessage());
+            }
+
+            return;
         }
 
-
-        String productId = req.getParameter("product_id");
-        Boolean result = productServer.deleteProduct(11);
-        if(result != false){
-            resp.sendRedirect("/views/seller.jsp");
-        }
 
     }
 }

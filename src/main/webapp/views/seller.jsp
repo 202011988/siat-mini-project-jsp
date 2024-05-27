@@ -29,6 +29,15 @@
         cursor: pointer;
         border-radius: 5px;
     }
+    button {
+        margin: 5px;
+        padding: 10px 20px;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+    }
 
     .buttons-container button:hover {
         background-color: #0056b3;
@@ -49,6 +58,7 @@
     th {
         background-color: #f2f2f2;
     }
+
 </style>
 <body>
 <h1 align="center">판매자 관리 페이지 <button onclick="location.href='/views/productInsert.jsp'">추가</button></h1>
@@ -66,6 +76,9 @@
                 <td bgcolor="#336699">
                     <p align="center"><font color="white"><b><span style="font-size:12pt;">가격</span></b></font></p>
                 </td>
+                <td bgcolor="#336699">
+                    <p align="center"><font color="white"><b><span style="font-size:12pt;">재고</span></b></font></p>
+                </td>
             </tr>
 
             <!-- 부서 객체 유무 검증 -->
@@ -81,21 +94,18 @@
                 <tr>
                     <td bgcolor="">
                         <p align="center">
-
 							<span style="font-size:12pt;">
 								<!--
 									이름
 								 -->
 								    <b>
-									    <a href="/productDetails.do?productId=${product.id}">
-                                                ${product.name}
-                                        </a>
+									    <a href="/productDetails.do?productId=${product.id}"> ${product.name} </a>
 								    </b>
-
 							</span>
 
                         </p>
                     </td>
+
                     <td bgcolor="">
                         <p align="center">
 				            <span style="font-size:12pt;">
@@ -104,6 +114,7 @@
 				            </span>
                         </p>
                     </td>
+
                     <td bgcolor="">
                         <p align="center">
 			            	<span style="font-size:12pt;">
@@ -112,6 +123,16 @@
 			             	</span>
                         </p>
                     </td>
+
+                    <td bgcolor="">
+                        <p align="center">
+			            	<span style="font-size:12pt;">
+			            		<!-- 가격 -->
+			             		<b>${product.stock}</b>
+			             	</span>
+                        </p>
+                    </td>
+
                 </tr>
             </c:forEach>
         </table>

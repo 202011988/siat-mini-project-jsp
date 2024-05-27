@@ -67,13 +67,12 @@ public class ProductRepository {
 
     }
 
-    public boolean delectProduct(Integer id) {
+    public void delectProduct(Integer id) {
         String sql = "DELETE FROM Product p WHERE p.id = :id";
-        Integer result = em.createQuery(sql, Product.class)
+       em.createQuery(sql)
                 .setParameter("id", id)
                 .executeUpdate();
         tx.commit();
-        return result > 0;
     }
 
     public void off() {
