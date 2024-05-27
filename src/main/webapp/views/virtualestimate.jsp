@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>PC 견적</title>
@@ -41,11 +41,12 @@
   .product-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .product-item {
-    width: 30%;
+    width: 300px;
+    height: 200px;
     margin-bottom: 30px;
     padding: 20px;
     border: 1px solid #ddd;
@@ -53,10 +54,7 @@
     text-align: center;
   }
 
-  .product-item img {
-    max-width: 100%;
-    height: auto;
-  }
+
 
   .product-item h3 {
     margin-top: 10px;
@@ -88,56 +86,58 @@
     cursor: pointer;
   }
 
+  .buy-btn button:hover{
+      background-color: #a00;
+  }
+
   /*  --------*/
   .product-category {
     display: none;
   }
 
   {
-    box-sizing: border-box
-  ;
-    margin: 10px
-  ;
-    padding: 10px
-  ;
+      box-sizing: border-box;
+      margin : 10px;
+      padding : 10px;
   }
+
   .parentt {
-    width: 300px;
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-    border: 3px;
+      width : 300px;
+      height : 100px;
+      display: flex;
+      flex-direction: row;
+      border : 3px;
   }
 
   .childd {
-    flex: 1 0 auto;
-    border: 3px;
+      flex: 1 0 auto;
+      border : 3px;
   }
 
 </style>
 
 
+
 <div class="parentt">
     <div class="childd">
-        <c:forEach items="${requestScope.category}" var="category">
-            <div class="right-menu">
-                <ul>
-                    <li><a href="#">${category.name}</a></li>
-                </ul>
-            </div>
-        </c:forEach>
+    <c:forEach items="${requestScope.category}" var= "category">
+        <div class="right-menu">
+            <ul>
+                <li><a href="#">${category.name}</a></li>
+            </ul>
+        </div>
+    </c:forEach>
     </div>
 
     <div class="product-container childd">
 
         <%--test--%>
-        <c:forEach items="${requestScope.category}" var="category">
+        <c:forEach items="${requestScope.category}" var= "category">
             <div class="product-category" id=${category.name}>
                 <div class="product-list">
-                    <c:forEach items="${requestScope.product}" var="product">
+                    <c:forEach items="${requestScope.product}" var= "product">
                         <c:if test="${product.category.id eq category.id}">
-                            <div class="product-item"
-                                 id=${product.id}> <%-- 이 코드에 id를 추가한다 (product's id) --%>
+                            <div class="product-item" id=${product.id}> <%-- 이 코드에 id를 추가한다 (product's id) --%>
                                     <%--                        <img src="product1.jpg" alt="인텔 코어i5-14세대 14600K (렙터레이크 리프레시)">--%>
                                 <h3>${product.name}</h3>
                                 <p>${product.description}</p>
@@ -152,29 +152,24 @@
 
 
         <script>
-          const buyBtns = document.querySelectorAll('.buy-btn');
+            const buyBtns = document.querySelectorAll('.buy-btn');
 
-          buyBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-              const productId = btn.closest('.product-item').id;
+            buyBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const productId = btn.closest('.product-item').id;
 
-              // productId 를 서버로 전송하는 코드
-              fetch("http://localhost:8080/insertCart.do", {
-                method: 'POST',
-                body: JSON.stringify({productId}),
-                headers: {
-                  'Content-Type': 'application/json'
-                }
-              }).then((res) => {
-                if (res.ok) {
-                  const go = confirm("장바구니에 담았습니다. 장바구니 확인하겠습니까?");
-                  if (go) {
-                    location.href = 'http://localhost:8080/cart.do';
-                  }
-                }
-              })
+                    console.log(productId[0]);
+
+                    // productId 를 서버로 전송하는 코드
+                    fetch("http://localhost:8080/insertCart.do", {
+                        method: 'POST',
+                        body: JSON.stringify({productId}),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                })
             })
-          })
         </script>
 
         <%-- end test--%>
@@ -183,9 +178,7 @@
 </div>
 
 
-<div class="parentt">
-    <%@ include file="/views/layout/footer.jsp" %>
-</div>
+<div class="parentt"><%@ include file="/views/layout/footer.jsp" %></div>
 
 
 <script>

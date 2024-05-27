@@ -36,6 +36,28 @@ footer {
   text-align: center;
   color: black;
   font-size: 10px;
-  position : relative;
-  transform : translateY(0%);
+  position: relative;
+  transform: translateY(0%);
 }
+
+.buttons-container {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.buttons-container button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.buttons-container button:hover {
+  background-color: #208328;
+}
+
+

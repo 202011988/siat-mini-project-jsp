@@ -15,17 +15,17 @@
 <table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white"
        bordercolorlight="black">
     <tr>
-        <td bgcolor="#336699">
+        <td bgcolor="#4CAF50">
             <p align="center">
                 <font color="white"><b><span style="font-size:12pt;">주문번호</span></b></font></p>
         </td>
-        <td bgcolor="#336699">
+        <td bgcolor="#4CAF50">
             <p align="center"><font color="white"><b><span style="font-size:12pt;">상품명</span></b></font></p>
         </td>
-        <td bgcolor="#336699">
+        <td bgcolor="#4CAF50">
             <p align="center"><font color="white"><b><span style="font-size:12pt;">수량</span></b></font></p>
         </td>
-        <td bgcolor="#336699">
+        <td bgcolor="#4CAF50">
             <p align="center"><font color="white"><b><span style="font-size:12pt;">주문일자</span></b></font></p>
         </td>
     </tr>
@@ -78,7 +78,14 @@
             </td>
         </tr>
     </c:forEach>
+
+
 </table>
+
+<div class="buttons-container">
+    <button onclick="location.href='/'">메인으로</button>
+</div>
+
 <%@ include file="/views/layout/footer.jsp" %>
 </body>
 </html>

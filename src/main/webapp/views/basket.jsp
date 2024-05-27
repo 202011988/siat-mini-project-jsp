@@ -22,20 +22,20 @@
     <table align="center" border="0" cellpadding="5" cellspacing="2" width="100%"
            bordercolordark="white" bordercolorlight="black">
         <tr>
-            <td bgcolor="#336699">
+            <td bgcolor="#4CAF50">
                 <p align="center">
                     <font color="white"><b><span style="font-size:12pt;">&nbsp;</span></b></font>
                 </p>
             </td>
-            <td bgcolor="#336699">
+            <td bgcolor="#4CAF50">
                 <p align="center"><font color="white"><b><span style="font-size:12pt;">번호</span></b></font>
                 </p>
             </td>
-            <td bgcolor="#336699">
+            <td bgcolor="#4CAF50">
                 <p align="center"><font color="white"><b><span
                         style="font-size:12pt;">상품명</span></b></font></p>
             </td>
-            <td bgcolor="#336699">
+            <td bgcolor="#4CAF50">
                 <p align="center"><font color="white"><b><span style="font-size:12pt;">개수</span></b></font>
                 </p>
             </td>
@@ -93,10 +93,17 @@
         </c:forEach>
     </table>
 
-    <input type="submit" value="주문하기"/>
-    <input type="reset" value="모든 선택 풀기"/>
+    <div class="buttons-container">
+        <button type="submit">주문하기</button>
+        <button type="reset">모든 선택 풀기</button>
+    </div>
+
 </form>
-<button onclick="sendAjaxDeleteCarts()">삭제하기</button>
+<div class="buttons-container">
+    <button onclick="sendAjaxDeleteCarts()">삭제하기</button>
+    <button onclick="location.href='/'">메인으로</button>
+</div>
+
 
 <script>
   function sendAjaxDeleteCarts() {
