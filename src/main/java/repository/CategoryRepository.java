@@ -60,4 +60,10 @@ public class CategoryRepository {
 		return em.createQuery(sql, Category.class)
 				.getResultList();
 	}
+
+    public Category findCategoryById(int categoryId) {
+		Category category = null;
+		category = em.find(Category.class, categoryId);
+		return category;
+    }
 }

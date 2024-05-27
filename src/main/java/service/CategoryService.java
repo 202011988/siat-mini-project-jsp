@@ -22,6 +22,12 @@ public class CategoryService {
 
     }
 
+    public Category findCategoryById(int categoryId) {
+        return categoryRepository.findCategoryById(categoryId);
+    }
+
+
+
     public void saveAll(List<Category> categoryCpu) {
         categoryRepository.saveAll(categoryCpu);
     }

@@ -27,12 +27,13 @@ public class ProductService {
 
     }
 
-    public Boolean insertProduct(Product product) {
-       return productRepository.insertProduct(product);
+    public void insertProduct(Product product) {
+       productRepository.insertProduct(product);
     }
 
-    public void updateProduct(Product product, Integer category, Integer sellerId) {
-        productRepository.updateProduct(product,category,sellerId);
+
+    public void updateProduct(Product product) {
+        productRepository.updateProduct(product);
 
     }
 

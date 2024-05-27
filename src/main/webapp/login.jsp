@@ -33,7 +33,7 @@
                 <td width="450" height="20" align="center">
                     <b>
 		        		<span style="font-size:12pt;">
-		        			<input type="text" name="id" size="30">
+		        			<input type="text" name="id" size="30" value="123456789">
 		        		</span>
                     </b>
                 </td>
@@ -46,7 +46,7 @@
                     <b>
 		        		<span style="font-size:12pt;">
 		        			<!-- input 박스 -->
-		        			<input type="text" name="pw" size="30">
+		        			<input type="password" name="pw" size="30" value="password">
 		        		</span>
                     </b>
                 </td>

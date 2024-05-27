@@ -51,11 +51,11 @@
     }
 </style>
 <body>
-<h1 align="center">판매자 관리 페이지</h1>
+<h1 align="center">판매자 관리 페이지 <button onclick="location.href='/views/productInsert.jsp'">추가</button></h1>
+
 
 
 <div id="container">
-    <c:if test="${not empty sessionScope.seller}">
         <table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
             <tr>
                 <td bgcolor="#336699">
@@ -88,7 +88,7 @@
 									이름
 								 -->
 								<b>
-									<a href="/views/detailProduct.jsp?productId=${product.id}">${product.name}</a>
+									<a href="/views/detailProduct.jsp">${product.name}</a>
 								</b>
 							</span>
                         </p>
@@ -113,60 +113,9 @@
             </c:forEach>
         </table>
         <hr>
-        <div align=center>
-            <!-- 메인으로 클릭 시, 모든 부서 정보 출력 -->
-            <span style="font-size:12pt;"><input type="button" value="메인으로" onclick="location.href=''"></span>
-            <!-- 부서생성 클릭 시, 새로운 부서 정보 입력 페이지로 이동 -->
-            <span style="font-size:12pt;"><input type="button" value="부서생성" onclick="location.href='/insertDeptForm.do'"></span>
-        </div>
-    </c:if>
-
-    <c:if test="${empty sessionScope.userId}">
-        <div align="center">
-            <span style="font-size:12pt;">로그인이 필요한 서비스입니다.</span>
-        </div>
-    </c:if>
 </div>
-<%--<div class="buttons-container">--%>
-<%--    <button onclick="location.href='/views/productUpdate.jsp'">수정</button>--%>
-<%--    <button onclick="location.href='/productRemove.do'">삭제</button>--%>
-<%--</div>--%>
 
 
-<%--			<c:forEach items="${requestScope.productSeller}" var= "product">--%>
-<%--            <tr>--%>
-<%--                <td class="productName" name = "productName"><a href="/views/detailProduct.jsp">${product.name}</a></td>--%>
-<%--                <td>${product.description}</td>--%>
-<%--                <td>${product.price}</td>--%>
-
-
-
-
-<%--<script>--%>
-<%--    function sendAjaxDeleteCarts() {--%>
-<%--        const selectedProducts = Array.from(document.querySelectorAll('input[name="products"]:checked'))--%>
-<%--            .map(checkbox => checkbox.value);--%>
-<%--        if (selectedProducts.length === 0) {--%>
-<%--            alert('삭제할 제품을 선택해주세요.');--%>
-<%--            return;--%>
-<%--        }--%>
-
-<%--        fetch('http://localhost:8080/deleteCart.do', {--%>
-<%--            method: 'DELETE',--%>
-<%--            headers: {--%>
-<%--                'Content-Type': 'application/json'--%>
-<%--            },--%>
-<%--            body: JSON.stringify({products: selectedProducts})--%>
-<%--        }).then(response => {--%>
-<%--            if (response.ok) {--%>
-<%--                // 삭제 성공 시 처리--%>
-<%--                alert('제품이 삭제되었습니다.');--%>
-<%--                // 페이지 새로고침 또는 필요한 추가 작업 수행--%>
-<%--                location.reload();--%>
-<%--            }--%>
-<%--        })--%>
-<%--    }--%>
-<%--</script>--%>
 
 <%@ include file="/views/layout/footer.jsp" %>
 </body>
