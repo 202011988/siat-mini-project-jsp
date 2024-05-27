@@ -3,12 +3,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-
-<h2 align="center">PC Shop</h2>
-
-  <p align="center">
-    컴퓨터 부품 구매 페이지
-    <br />    
+  <h2 align="center">PC Shop</h2>
+  <p align="center"> 컴퓨터 부품 구매 페이지
+  <br />    
 </div>
 <hr>
 
