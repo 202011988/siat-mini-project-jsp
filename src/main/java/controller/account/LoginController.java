@@ -44,6 +44,8 @@ public class LoginController extends HttpServlet {
                 session.setAttribute("storeName", seller.getStoreName());
 
                 resp.sendRedirect("/productFind.do");
+                req.getRequestDispatcher("/views/seller.jsp").forward(req, resp);
+
             } else {
                 req.setAttribute("error", "해당하는 판매자를 찾을 수 없음");
                 req.getRequestDispatcher("/views/errors/error.jsp").forward(req, resp);
@@ -61,7 +63,7 @@ public class LoginController extends HttpServlet {
                 session.setAttribute("user", user.getUserId());
                 session.setAttribute("username", user.getUsername());
 
-                resp.sendRedirect("/productFind.do");
+                resp.sendRedirect("/");
             } else {
                 req.setAttribute("error", "해당하는 계정을 찾을 수 없음");
                 req.getRequestDispatcher("/views/errors/error.jsp").forward(req, resp);

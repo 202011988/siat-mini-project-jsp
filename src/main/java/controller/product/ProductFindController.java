@@ -43,11 +43,11 @@ public class ProductFindController extends HttpServlet {
         }
 
 
-//        String productName = req.get();
-//        System.out.println(productName);
-//        if (productName != null && !productName.isEmpty()) {
-//            System.out.println(productName);
-//        }
+        String productName = req.getParameter("productName");
+        System.out.println(productName);
+        if (productName != null && !productName.isEmpty()) {
+            System.out.println(productName);
+        }
 
     }
 }
