@@ -61,7 +61,7 @@
 
 </style>
 <body>
-<h1 align="center">판매자 관리 페이지 <button onclick="location.href='/views/productInsert.jsp'">추가</button></h1>
+<h1 align="center">판매자 관리 페이지 <button onclick="location.href='productInsertInput.do'">추가</button></h1>
 
 <div id="container">
         <table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
