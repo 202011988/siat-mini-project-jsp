@@ -33,7 +33,6 @@
 <h1 align="center">상품 정보</h1>
 <div class="container">
     <div class="table-container">
-        <form action="productUpdate.jsp" method="POSET"
         <table>
             <thead>
             <tr>
@@ -68,7 +67,10 @@
             </tr>
             <% } %>
             </tbody>
+            <button onclick="location.href='/productUpdateInput.do?productId=${requestScope.product.id}'">수정하기</button>
+            <button onclick="location.href='/productDeletInput.do?productId=${requestScope.product.id}'">삭제하기</button>
         </table>
+
     </div>
 </div>
 

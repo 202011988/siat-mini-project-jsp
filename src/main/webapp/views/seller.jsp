@@ -53,8 +53,6 @@
 <body>
 <h1 align="center">판매자 관리 페이지 <button onclick="location.href='/views/productInsert.jsp'">추가</button></h1>
 
-
-
 <div id="container">
         <table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
             <tr>
@@ -83,14 +81,19 @@
                 <tr>
                     <td bgcolor="">
                         <p align="center">
+
 							<span style="font-size:12pt;">
 								<!--
 									이름
 								 -->
-								<b>
-									<a href="/views/detailProduct.jsp">${product.name}</a>
-								</b>
+								    <b>
+									    <a href="/productDetails.do?productId=${product.id}">
+                                                ${product.name}
+                                        </a>
+								    </b>
+
 							</span>
+
                         </p>
                     </td>
                     <td bgcolor="">

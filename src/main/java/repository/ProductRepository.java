@@ -50,12 +50,11 @@ public class ProductRepository {
     }
 
     public void updateProduct(Product product) {
-//        em.persist(productUpdate);
         String sql = "UPDATE Product p SET p.category = :category, p.description = :description, " +
-                "p.name = :name, p.price = :price, p.stock = :stock WHERE p.seller = :seller";
+                "p.name = :name, p.price = :price, p.stock = :stock WHERE p.id = :id";
 
         em.createQuery(sql)
-                .setParameter("seller", product.getSeller())
+                .setParameter("id", product.getId())
                 .setParameter("category", product.getCategory())
                 .setParameter("price", product.getPrice())
                 .setParameter("description", product.getDescription())

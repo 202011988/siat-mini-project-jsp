@@ -24,15 +24,16 @@ public class ProductUpdateController extends HttpServlet {
             throws ServletException, IOException {
 
 
-
 		HttpSession session = req.getSession();
-
+		String productId = req.getParameter("productId");
 		Integer sellerId = (Integer) session.getAttribute("seller");
 		String productPrice = req.getParameter("productPrice");
 		String productDescription = req.getParameter("description");
 		String productStock = req.getParameter("stock");
 		String productName = req.getParameter("name");
 		String productCategory = req.getParameter("prodcutCategory");
+
+		System.out.println(productId +","+ sellerId);
 
 		CategoryService categoryService = new CategoryService();
 		SellerService sellerService = new SellerService();
@@ -45,10 +46,14 @@ public class ProductUpdateController extends HttpServlet {
     		int productPriceInt = Integer.parseInt(productPrice);
     		int productStockInt = Integer.parseInt(productStock);
 			int productCategoryInt = Integer.parseInt(productCategory);
+			int productIdInt = Integer.parseInt(productId);
+
 			Category category = categoryService.findCategoryById(productCategoryInt);
 			Seller seller = sellerService.findSellerById(sellerId);
 
+
     		product = Product.builder()
+					.id(productIdInt)
 					.price(productPriceInt)
 					.description(productDescription)
 					.stock(productStockInt)
@@ -58,12 +63,9 @@ public class ProductUpdateController extends HttpServlet {
 					.build();
 
 
-    		productService.updateProduct(product);
-			resp.sendRedirect("/views/seller.jsp");
+    		productService.updateProduct(product);	// 입력 받은 값을 쿼리해서 수정해서
+			resp.sendRedirect("/productFind.do"); // 목록을 가져와서 출력하는 do 컨트롤러.
 
-//			if(result != false){
-//
-//			}
 		} catch (Exception e) {
 			System.out.println(e);
 

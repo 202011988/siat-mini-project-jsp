@@ -35,6 +35,18 @@
 	<!-- action, method -->
 	<form action="/productUpdate.do" method="GET" id="productUpdateForm" onsubmit="checkData()">
 		<table align="center" cellpadding="5" cellspacing="1" width="600" border="1">
+			<tr>
+				<td width="230" height="20">
+					<p align="center"><b><span style="font-size:12pt;">제품 ID</span></b></p>
+				</td>
+				<td width="450" height="20" align="center">
+					<b>
+		        		<span style="font-size:12pt;">
+		        			<input type="number" name="productId" value="${requestScope.product.id}" readonly>
+		        		</span>
+					</b>
+				</td>
+			</tr>
 
 			<tr>
 				<td width="230" height="20">
@@ -43,7 +55,7 @@
 				<td width="450" height="20" align="center">
 					<b>
 		        		<span style="font-size:12pt;">
-		        			<input type="number" name="productPrice" size="30">
+		        			<input type="number" name="productPrice" size="30" value="${requestScope.product.price}">
 		        		</span>
 					</b>
 				</td>
