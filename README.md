@@ -26,7 +26,7 @@
 <hr>
 [Order] <br/>
 SELECT o FROM Order o where o.user.userId = :userId <br/>
-SELECT o FROM Order o WHERE o.id = :id 
+SELECT o FROM Order o WHERE o.id = :id <br/>
 
 [Cart] <br/>
 DELETE FROM Cart c WHERE c.id = :id <br/>
