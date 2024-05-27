@@ -53,7 +53,7 @@
 									상품명 클릭 시, 해당 상품 상세정보 출력
 								 -->
 								<b>
-									<a href="/#=">${order.product.name}</a>
+									<a href="productDetails.do?productId=${order.product.id}">${order.product.name}</a>
 								</b>
 							</span>
             </p>
