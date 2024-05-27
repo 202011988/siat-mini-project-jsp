@@ -43,7 +43,7 @@
                 <p align="center">
 				            <span style="font-size:12pt;">
 				            	<!-- 주문번호 -->
-				            	<b>${order.id}</b>
+                                <b><a href="orderDetail.do?orderId=${order.id}">${order.id}</a></b>
 				            </span>
                 </p>
             </td>            <td bgcolor="">
