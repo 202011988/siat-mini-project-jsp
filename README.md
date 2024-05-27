@@ -4,16 +4,19 @@
 <br />
 <div align="center">
 
-<h3 align="center">Computer Shoppingmall</h3>
+<h3 align="center">PC Shop</h3>
 
   <p align="center">
     컴퓨터 부품 구매 페이지
     <br />    
 </div>
 <hr>
+
 [사용목적] <br/>
 유저가 컴퓨터 부품을 찾아보고 장바구니에 담을 수 있고 판매자가 상품을 등록할 수 있는 페이지를 만들었다<br/>
+
 <hr>
+
 함승우
   - Oder, Cart 구현 <br/>
   
